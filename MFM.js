@@ -46,6 +46,13 @@ var hotel3=({name:"hotel2", x:width*2, y:-310, width:800, height:500});
 var hotel4=({name:"hotel4", x:width*2, y:-510, width:800, height:500});
 var elevator=({name:"elevator", x:2058, y:190, width:142, height:125, goingUp:true});
 var waterTower=({name:"waterTower", x:width*2, y:-1010, width:244, height:500});
+var ballroom=({name:"ballroom", x:-800, y:-1260, width:1000, height:405, imgOffset:0});
+var ballroomStairs=({name:"ballroomStairs", x:-630, y:-1260, width:243, height:352});
+var ballroom2=({name:"ballroom2", x:-800, y:-1580, width:1000, height:320});
+var skylight=({name:"skylight", x:ballroom2.x+255, y:ballroom2.y, width:400, height:322, boxWidth:400, boxHeight:350});
+var balcony=({name:"balcony", x:ballroom.x+ballroom.width-10, y:ballroom2.y, width:210, height:670});
+var forrestSign=({name:"forrestSign", x:ballroom.x+1500, y:ballroom.y+270, width:63, height:80});
+
 
 var killers = [];
 killers.push({name:"doctor", x:200, y:345, width:40, height:95, dead:false, imgOffsetY:0, imgOffsetX:40,animSpeed:7,frames:3,goingRight:false,speed:.3,leftX:-width+10,rightX:width*2-210});
@@ -59,7 +66,9 @@ killers.push({name:"doctor", x:1850, y:-425, width:40, height:95, dead:false, im
 killers.push({name:"nurse", x:1600, y:-620, width:40, height:97, dead:false, imgOffsetY:0, imgOffsetX:40,animSpeed:6,frames:3,goingRight:true,speed:1,leftX:1400,rightX:2045});
 killers.push({name:"nurse", x:1800, y:-620, width:40, height:97, dead:false, imgOffsetY:0, imgOffsetX:40,animSpeed:6,frames:3,goingRight:true,speed:1,leftX:1400,rightX:2045});
 killers.push({name:"nurse", x:2000, y:-620, width:40, height:97, dead:false, imgOffsetY:0, imgOffsetX:40,animSpeed:6,frames:3,goingRight:true,speed:1,leftX:1400,rightX:2045});
-killers.push({name:"johnList", x:1400, y:185, width:107, height:105, dead:false, imgOffsetY:0, imgOffsetX:107, goingRight:true, frames:5, animSpeed:10, leftX:1400, rightX:2100, speed:.5});
+killers.push({name:"ramirez", x:1400, y:180, width:47, height:110, dead:false, imgOffsetX:47, goingRight:true, frames:7, animSpeed:10, leftX: 1400, rightX:2160, speed:1});
+killers.push({name:"johnList", x:200, y:-1015, width:107, height:105, dead:false, imgOffsetY:0, imgOffsetX:107, goingRight:true, frames:5, animSpeed:10, leftX:200, rightX:700, speed:.5});
+
 
 var ghosts = [];
 ghosts.push({name:"elisa", x:1800, y:160, width:15, height:92, imgOffsetY:0, imgOffsetX:0});
@@ -89,7 +98,7 @@ cookies.push({name:"cookie", x:2100, y:-550, width:19, height:19, eaten:false});
 cookies.push({name:"cookie", x:2150, y:-550, width:19, height:19, eaten:false});
 cookies.push({name:"cookie", x:2200, y:-550, width:19, height:19, eaten:false});
 
-var quotes=("Look and listen","Good byeeeeee","Fuck politeness","Stay out of the forest","You're in a cult. Call your dad.","This isn't like Sephora.","Gafuck Yaself","I'M sorry.","Pepper spray first, apologize later.","Toxic masculinity ruins the party again","It's. Not. Squirrels.","I am going to Lulumurder you")
+//var quotes=("Look and listen","Good byeeeeee","Fuck politeness","Stay out of the forest","You're in a cult. Call your dad.","This isn't like Sephora.","Gafuck Yaself","I'M sorry.","Pepper spray first, apologize later.","Toxic masculinity ruins the party again","It's. Not. Squirrels.","I am going to Lulumurder you")
 
 var boxes = [];
 //elevator floor
@@ -108,13 +117,10 @@ boxes.push({x:-width-85,y:-560, width:96, height:1000, skin:"wall"});
 //right wall
 boxes.push({x:width*2-96, y:-910, width:96, height:1000, skin:"wall"});
 boxes.push({x:width*2-96, y:291, width:96, height:200, skin:"shortWall"});
-//stairs to farm
+//stairs to list mansion
 boxes.push({x:width*2-200, y:-910, width:50, height:50, skin:"square"});
 boxes.push({x:width*2-350, y:-910, width:30, height:30, skin:"square"});
 boxes.push({x:width*2-450, y:-910, width:20, height:20, skin:"square"});
-//farm platform
-boxes.push({x:width*2-1150, y:-910, width:550, height:30, skin:"rect"});
-
 //hotel floors
 boxes.push({x:1400, y:290, width:800, height:200, skin:"lib"});
 boxes.push({x:1400, y:80, width:680, height:10, skin:"lib"});
@@ -124,9 +130,34 @@ boxes.push({x:1400, y:-526, width:270, height:16, skin:"lib"});
 boxes.push({x:1750, y:-526, width:500, height:16, skin:"lib"});
 //right hotel wall
 boxes.push({x:(width*2-96)+895, y:-510, width:96, height:1000, skin:"wall"});
-//boxes.push({x:hotel4.x+280, y:hotel4.y+100, width:50, height:2, skin:"rect"});
+//list platform
+boxes.push({x:-800, y:-910, width:1600, height:60, skin:"rect"});
+//ballroom stairs
+boxes.push({x:ballroomStairs.x+130, y:ballroomStairs.y+315, width:30, height:2, skin:"no"});
+boxes.push({x:ballroomStairs.x+100, y:ballroomStairs.y+285, width:30, height:2, skin:"no"});
+boxes.push({x:ballroomStairs.x+70, y:ballroomStairs.y+255, width:30, height:2, skin:"no"});
+boxes.push({x:ballroomStairs.x+40, y:ballroomStairs.y+225, width:30, height:2, skin:"no"});
+boxes.push({x:ballroomStairs.x+10, y:ballroomStairs.y+195, width:30, height:2, skin:"no"});
+boxes.push({x:ballroomStairs.x-10, y:ballroomStairs.y, width:10, height:ballroomStairs.height, skin:"no"});
+
+boxes.push({x:ballroomStairs.x+120, y:ballroomStairs.y+120, width:10, height:2, skin:"no"});
+boxes.push({x:ballroomStairs.x+150, y:ballroomStairs.y+90, width:10, height:2, skin:"no"});
+boxes.push({x:ballroomStairs.x+180, y:ballroomStairs.y+60, width:10, height:2, skin:"no"});
+boxes.push({x:ballroomStairs.x+210, y:ballroomStairs.y+30, width:10, height:2, skin:"no"});
+
+//ballroom 2nd floor
+//boxes.push({x:ballroom2.x, y:ballroom2.y+ballroom2.height-20, width:250, height:10, skin:"no"});
+boxes.push({x:ballroom2.x+420, y:ballroom2.y+ballroom2.height-20, width:780, height:10, skin:"rect"});
+//forrest
+boxes.push({x:800, y:-400, width:40, height:40, skin:"square"});
+boxes.push({x:ballroom.x+ballroom.width, y:ballroom.y+1000, width:800, height:40, skin:"rect"});
+
+
 
 var rungs=[];
+//ballroom stairs landing
+rungs.push({x:ballroomStairs.x+40, y:ballroomStairs.y+150, width:60, height:10});
+
 rungs.push({x:waterTower.x+100, y:waterTower.y+390, width:42, height:2});
 rungs.push({x:waterTower.x+100, y:waterTower.y+290, width:42, height:2});
 rungs.push({x:waterTower.x+100, y:waterTower.y+190, width:42, height:2});
@@ -135,7 +166,7 @@ rungs.push({x:hotel4.x+280, y:hotel4.y+80, width:50, height:2});
 rungs.push({x:hotel4.x+280, y:hotel4.y+3, width:50, height:2});
 
 var movingObjects = []; //for moving the viewport
-movingObjects.push(waterTower,fountain,elevator,motelSign,hotel1,hotel2,hotel3,hotel4,hotelDoor);
+movingObjects.push(forrestSign,balcony,skylight,ballroom2,ballroomStairs,ballroom,waterTower,fountain,elevator,motelSign,hotel1,hotel2,hotel3,hotel4,hotelDoor);
 
 for(i=0;i<boxes.length;i++){
 	movingObjects.push(boxes[i]);
@@ -155,7 +186,7 @@ for(i=0;i<cookies.length;i++){
 
 var pics = [];
 
-pics.push(hotel1,hotel2,hotel3,hotel4,waterTower,motelSign,elvis,player,elevator,hotelDoor,fountain);
+pics.push(forrestSign,skylight,ballroom2,ballroom,hotel1,hotel2,hotel3,hotel4,waterTower,motelSign,elvis,player,balcony,ballroomStairs,elevator,hotelDoor,fountain);
 
 for(i=0;i<killers.length;i++){
 	pics.push(killers[i]);
@@ -176,7 +207,13 @@ var soundOn=true;
 var hitSound = new Audio('hit.wav');
 var cookieSound = new Audio('cookie.wav');
 var killSound = new Audio('kill.wav');
-var song = new Audio('song.wav');
+var song = new Audio('tribal.wav');
+//var song = new Audio('mfm2.wav');
+//var cecilSong = new Audio('cecilSong2.wav');
+var cecilSong = new Audio('hotel.wav');
+var waterTowerSounds = new Audio('waterTowerSounds.wav');
+
+var listSong = new Audio('DminorFugue.mp3');
 
 //initialize some variables
 var cookieCount = 0;
@@ -189,6 +226,9 @@ var viewportNorm = 103;
 if(soundOn){
   song.loop=true;
   song.play();
+  //cecilSong.loop=true;
+  //cecilSong.play();
+  //cecilSong.volume = 0;
 }
 function update() {
 
@@ -198,6 +238,37 @@ function update() {
     frameCount=0;
   }
 
+  if(player.x<ballroom.x+ballroom.width+700 && player.y<ballroom.y+ballroom.height){
+    song.pause();
+    if(soundOn){
+      listSong.play();
+    }else{
+      listSong.pause();
+    }
+  }else if(player.x>hotel1.x-5){
+    listSong.pause();
+    song.pause();
+    if(soundOn){
+      cecilSong.play();
+      if(player.y<waterTower.y+waterTower.height){
+        waterTowerSounds.play();
+      }else{
+        waterTowerSounds.pause();
+      }
+      //cecilSong.volume=1;
+    }else{
+      //cecilSong.pause();
+      cecilSong.pause();
+    }
+  }else{
+    //cecilSong.pause();
+    cecilSong.pause();
+    listSong.pause();
+    waterTowerSounds.pause();
+    if(soundOn){
+      song.play();
+    }
+  }
 
     // check keys
     if (keys[38]) {
@@ -298,6 +369,7 @@ function update() {
     }else{
       elvis.x=player.x;
       elvis.y=player.y;
+      gravity=.15;
     }
     if(player.goingRight===true){
       player.imgOffsetY = 0;
@@ -397,6 +469,9 @@ function update() {
         killers[i].imgOffsetX=0;
         if(killers[i].height>0){
           killers[i].height-=.8;
+        }else{
+          killers[i].width=0;
+          killers[i].height=0;
         }
       }
     }
@@ -421,19 +496,19 @@ function update() {
     }
 
     //move viewport up
-    if(player.grounded === true && player.y < height/1.5){
+    if(player.grounded && player.y < height/1.5){
     	for(i=0; i<movingObjects.length; i++){
-      	movingObjects[i].y++;
+      	movingObjects[i].y+=2;
       }
-      player.y +=.3;
-      city.y+=.2;
+      player.y +=2;
+      city.y+=.8;
     }
     //move viewport down
     if(player.y>height-viewportNorm){
     	for(i=0; i<movingObjects.length; i++){
       	movingObjects[i].y-=2;
       }
-      city.y-=.4;
+      city.y-=.8;
     }
     player.x += player.velX;
     player.y += player.velY;
@@ -460,12 +535,40 @@ if(elevator.goingUp===true){
     elevator.goingUp=true;
   }
 }
+//fires in list mansion
+//for(var i=0; i<10; i++){
+if(player.x>ballroom.x && player.x<ballroom.x+ballroom.width && player.y<ballroom.y+ballroom.height){
+  //alert("fire 1");
+  if(frameCount%500===0){
+    var xf = Math.random();
+    var yf = Math.random();
+    if(yf>.5){
+      yf=ballroom2.y+230;
+    }else{
+      yf=ballroom.y+300;
+    }
+    //alert("fire 2");
+    killers.push({name:"fire", x:xf*1000+ballroom.x, y:yf, width:41, height:77, dead:false, imgOffsetX:41, goingRight:true, frames:4, animSpeed:7, leftX: 1400, rightX:2160, speed:0});
+    //killers.push({name:"fire", x:600, y:-970, width:41, height:77, dead:false, imgOffsetX:41, goingRight:true, frames:4, animSpeed:7, leftX: 1400, rightX:2160, speed:0});
+    movingObjects.push(killers[killers.length-1])
+    pics.push(killers[killers.length-1]);
+    //pics.push(pics.shift());
+  }
+}
+
 //sign flicker
 var random = Math.random();
 if(random>.8){
   motelSign.imgOffset=motelSign.width;
 }else{
   motelSign.imgOffset=0;
+}
+//ballroom lights flicker
+//dir=colCheck(player, rungs[0]);
+if((player.x>ballroomStairs.x && player.x<ballroomStairs.x+100&&player.y+player.height>ballroom.y&&player.y<ballroom.y+80) || (player.x>ballroomStairs.x+400 && player.x<ballroomStairs.x+600)){
+  ballroom.imgOffset=ballroom.width;
+}else{
+  ballroom.imgOffset=0;
 }
 //ghosts flicker
 for(i=0;i<ghosts.length;i++){
@@ -588,13 +691,19 @@ function animate(killer,start){
   }
   if(killer.goingRight===true){
     killer.x+=killer.speed;
-    killer.imgOffsetY=0;
+    if(typeof(killer.imgOffsetY)==="number"){
+      killer.imgOffsetY=0;
+    }
     if(killer.x>killer.rightX){
       killer.goingRight=false;
     }
   }else if(killer.goingRight===false){
     killer.x-=killer.speed;
-    killer.imgOffsetY=killer.height;
+    if(typeof(killer.imgOffsetY)==="number"){
+      killer.imgOffsetY=killer.height;
+    //}else{
+      //killer.imgOffsetY=0;
+    }
     if(killer.x<killer.leftX){
       killer.goingRight=true;
     }
@@ -609,10 +718,16 @@ function drawTwo(pic){
         if(pic.height>0){
           ctx.drawImage(document.getElementById(pic.name+"Pic"),pic.imgOffsetX+.3,pic.imgOffsetY+.5,pic.width-1,pic.height-1,pic.x,pic.y,pic.width-1,pic.height-1);
         }
+      }else if(typeof(pic.imgOffsetX)==="number"){
+        ctx.drawImage(document.getElementById(pic.name+"Pic"),pic.imgOffsetX+.3,.5,pic.width-1,pic.height-1,pic.x,pic.y,pic.width-1,pic.height-1);
       }else if(typeof(pic.imgOffset)==="number"){
         ctx.drawImage(document.getElementById(pic.name+"Pic"),pic.imgOffset,0,pic.width,pic.height,pic.x,pic.y,pic.width,pic.height);
       }else{
-    	ctx.drawImage(document.getElementById(pic.name+"Pic"),0,0,pic.width,pic.height,pic.x,pic.y,pic.width,pic.height);
+        //if(typeof(pic.boxWidth)==="number"){
+          //ctx.drawImage(document.getElementById(pic.name+"Pic"),0,0,pic.width,pic.height,pic.x,pic.y,pic.Boxwidth,pic.Boxheight);
+        //}else{
+    	    ctx.drawImage(document.getElementById(pic.name+"Pic"),0,0,pic.width,pic.height,pic.x,pic.y,pic.width,pic.height);
+        //}
       }
     }
   }
