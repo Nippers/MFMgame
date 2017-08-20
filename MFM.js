@@ -17,6 +17,7 @@ canvas.getContext("2d").scale(2,2);
     var player = {
         x: width/2,
         y: -70,
+        //y:-800,
         width: 70,
         height: 94,
         speed: 3,
@@ -150,9 +151,29 @@ boxes.push({x:ballroomStairs.x+210, y:ballroomStairs.y+30, width:10, height:2, s
 boxes.push({x:ballroom2.x+420, y:ballroom2.y+ballroom2.height-20, width:780, height:10, skin:"rect"});
 //forrest
 boxes.push({x:800, y:-400, width:40, height:40, skin:"square"});
-boxes.push({x:ballroom.x+ballroom.width, y:ballroom.y+1000, width:800, height:40, skin:"rect"});
+boxes.push({x:ballroom.x+500, y:ballroom.y+1000, width:1200, height:40, skin:"rect"});
 
-
+var trees1 = [];
+for (i=0;i<30;i++){
+  var x = Math.random()*((ballroom.x+1400)-(ballroom.x+600))+(ballroom.x+600);
+  var h = Math.random()*(350-250)+250;
+  var w = Math.random()*(h-h*.4)+h*.4;
+  var n = Math.random();
+  trees1.push({name:"pineTree4", x:x, y:ballroom.y+1000-h, width:h*.733, height:h});
+}
+var trees2 = [];
+for (i=0;i<20;i++){
+  var x = Math.random()*((ballroom.x+1500)-(ballroom.x+500))+(ballroom.x+500);
+  var h = Math.random()*(350-150)+150;
+  var w = Math.random()*(h-h*.4)+h*.4;
+  var n = Math.random();
+  if(n>.5){
+    n="pineTree";
+  }else{
+    n="pineTree1";
+  }
+  trees2.push({name:n, x:x, y:ballroom.y+1000-h, width:w, height:h});
+}
 
 var rungs=[];
 //ballroom stairs landing
@@ -183,11 +204,22 @@ for(i=0;i<ghosts.length;i++){
 for(i=0;i<cookies.length;i++){
 	movingObjects.push(cookies[i]);
 }
-
+//for(i=0;i<trees1.length;i++){
+	//movingObjects.push(trees1[i]);
+//}
+for(i=0;i<trees2.length;i++){
+	movingObjects.push(trees2[i]);
+}
 var pics = [];
 
-pics.push(forrestSign,skylight,ballroom2,ballroom,hotel1,hotel2,hotel3,hotel4,waterTower,motelSign,elvis,player,balcony,ballroomStairs,elevator,hotelDoor,fountain);
+/*for(i=0;i<trees1.length;i++){
+	pics.push(trees1[i]);
+}*/
 
+pics.push(forrestSign,skylight,ballroom2,ballroom,hotel1,hotel2,hotel3,hotel4,waterTower,motelSign,elvis,player,balcony,ballroomStairs,elevator,hotelDoor,fountain);
+/*for(i=0;i<trees2.length;i++){
+	pics.push(trees2[i]);
+}*/
 for(i=0;i<killers.length;i++){
 	pics.push(killers[i]);
 }
@@ -292,6 +324,9 @@ function update() {
              movingObjects[i].rightX-=player.speed;
            }
            city.x -= player.speed/5;
+           for(i=0;i<trees1.length;i++){
+             trees1[i].x -= player.speed/1.5;
+           }
           }
         }
       player.goingRight = true;
@@ -315,6 +350,9 @@ function update() {
             movingObjects[i].rightX+=player.speed;
            }
            city.x += player.speed/5;
+           for(i=0;i<trees1.length;i++){
+             trees1[i].x += player.speed/1.5;
+           }
           }
         }
       player.goingRight = false;
@@ -500,6 +538,9 @@ function update() {
     	for(i=0; i<movingObjects.length; i++){
       	movingObjects[i].y+=2;
       }
+      for(i=0; i<trees1.length; i++){
+      	trees1[i].y+=2;
+      }
       player.y +=2;
       city.y+=.8;
     }
@@ -507,6 +548,9 @@ function update() {
     if(player.y>height-viewportNorm){
     	for(i=0; i<movingObjects.length; i++){
       	movingObjects[i].y-=2;
+      }
+      for(i=0; i<trees1.length; i++){
+      	trees1[i].y-=2;
       }
       city.y-=.8;
     }
@@ -606,10 +650,18 @@ for(i=0;i<ghosts.length;i++){
     		draw(image, 0, 0, image.width, image.height, boxes[i].x, boxes[i].y, boxes[i].width, boxes[i].height);
       }
   	}
-
+    for(i=0;i<trees1.length;i++){
+      var image = document.getElementById(trees1[i].name+"Pic");
+    	draw(image, 0, 0, image.width, image.height, trees1[i].x, trees1[i].y, trees1[i].width, trees1[i].height);
+  	}
 
   for(i=0; i<pics.length; i++){
     drawTwo(pics[i]);
+  }
+
+  for(i=0;i<trees2.length;i++){
+    var image = document.getElementById(trees2[i].name+"Pic");
+    draw(image, 0, 0, image.width, image.height, trees2[i].x, trees2[i].y, trees2[i].width, trees2[i].height);
   }
 
   ctx.fillStyle="rgba(255,255,255,.5)";
