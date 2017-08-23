@@ -16,8 +16,8 @@ canvas.getContext("2d").scale(2,2);
 
     var player = {
         x: width/2,
-        y: -70,
-        //y:-800,
+        //y: -70,
+        y:-1500,
         width: 70,
         height: 94,
         speed: 3,
@@ -52,10 +52,17 @@ var ballroomStairs=({name:"ballroomStairs", x:-630, y:-1260, width:243, height:3
 var ballroom2=({name:"ballroom2", x:-800, y:-1580, width:1000, height:320});
 var skylight=({name:"skylight", x:ballroom2.x+255, y:ballroom2.y, width:400, height:322, boxWidth:400, boxHeight:350});
 var balcony=({name:"balcony", x:ballroom.x+ballroom.width-10, y:ballroom2.y, width:210, height:670});
-var forrestSign=({name:"forrestSign", x:ballroom.x+1500, y:ballroom.y+270, width:63, height:80});
-
+var forestSign=({name:"forestSign", x:ballroom.x+1500, y:ballroom.y+270, width:63, height:80});
+var well = ({name:"well", x:ballroom.x+110, y:ballroom.y+820, width:90, height:228, frames:14, imgOffsetX:0, imgOffsetY:0, animSpeed:20});
+var graves = ({name:"graves", x:well.x+180, y:well.y+130, width:85, height:50});
+var grate = ({name:"grate", x:-width-85, y:height+90, width:96, height:110});
+var pipes = ({name:"pipes", x:grate.x+300, y:grate.y-80, width:500, height:100});
 
 var killers = [];
+killers.push({name:"rat", x:grate.x+700, y:grate.y+25, width:27, height:28, dead:false, imgOffsetY:28, imgOffsetX:0,animSpeed:12, frames:3, goingRight:false, speed:.6, leftX:grate.x+grate.width, rightX:grate.x+1000});
+killers.push({name:"rat", x:grate.x+600, y:grate.y+25, width:27, height:28, dead:false, imgOffsetY:28, imgOffsetX:0,animSpeed:12, frames:3, goingRight:false, speed:1, leftX:grate.x+grate.width, rightX:grate.x+1000});
+killers.push({name:"rat", x:grate.x+550, y:grate.y+25, width:27, height:28, dead:false, imgOffsetY:28, imgOffsetX:0,animSpeed:12, frames:3, goingRight:false, speed:1.5, leftX:grate.x+grate.width, rightX:grate.x+1000});
+killers.push({name:"ratBabies", x:grate.x+200, y:grate.y+18, width:47, height:28, dead:false, imgOffsetY:28, imgOffsetX:0,animSpeed:12, frames:4, goingRight:false, speed:.6, leftX:grate.x+grate.width, rightX:grate.x+1000});
 killers.push({name:"doctor", x:200, y:345, width:40, height:95, dead:false, imgOffsetY:0, imgOffsetX:40,animSpeed:7,frames:3,goingRight:false,speed:.3,leftX:-width+10,rightX:width*2-210});
 killers.push({name:"doctor", x:600, y:345, width:40, height:95, dead:false, imgOffsetY:95, imgOffsetX:40, animSpeed:7,frames:3,goingRight:true,speed:.3,leftX:-width+10,rightX:width*2-230});
 killers.push({name:"nurse", x:-200, y:343, width:40, height:97, dead:false, imgOffsetY:0, imgOffsetX:40,animSpeed:6,frames:3,goingRight:true,speed:1,leftX:-width+10,rightX:width*2-230});
@@ -99,13 +106,18 @@ cookies.push({name:"cookie", x:2100, y:-550, width:19, height:19, eaten:false});
 cookies.push({name:"cookie", x:2150, y:-550, width:19, height:19, eaten:false});
 cookies.push({name:"cookie", x:2200, y:-550, width:19, height:19, eaten:false});
 
-//var quotes=("Look and listen","Good byeeeeee","Fuck politeness","Stay out of the forest","You're in a cult. Call your dad.","This isn't like Sephora.","Gafuck Yaself","I'M sorry.","Pepper spray first, apologize later.","Toxic masculinity ruins the party again","It's. Not. Squirrels.","I am going to Lulumurder you")
+cookies.push({name:"cookie", x:ballroom.x+700, y:ballroom.y-180, width:19, height:19, eaten:false});
+cookies.push({name:"cookie", x:ballroom.x+800, y:ballroom.y-180, width:19, height:19, eaten:false});
+cookies.push({name:"cookie", x:ballroom.x+900, y:ballroom.y-180, width:19, height:19, eaten:false});
+cookies.push({name:"cookie", x:ballroom.x+1250, y:ballroom.y-200, width:19, height:19, eaten:false});
 
 var boxes = [];
 //elevator floor
 boxes.push({x:2058, y:310, width:142, height:5, skin:"rect"});
 //floor
-boxes.push({x:-width-96, y:height-10, width:width*3.1, height: 20, skin:"rect"});
+boxes.push({x:-width+100, y:height-10, width:width*3.1, height: 20, skin:"rect"});
+//sewer floor
+boxes.push({x:-width-200, y:height+200, width:width*3.1, height: 20, skin:"rect"});
 boxes.push({x:fountain.x, y:fountain.y+fountain.height, width:fountain.width+5, height: 35, skin:"rect"});
 //right stairs
 boxes.push({x:700, y:380, width:40, height:40, skin:"square"});
@@ -114,7 +126,7 @@ boxes.push({x:850, y:290, width:40, height:40, skin:"square"});
 boxes.push({x:970, y:240, width:50, height:50, skin:"square"});
 boxes.push({x:1100, y:220, width:60, height:60, skin:"square"});
 //left wall
-boxes.push({x:-width-85,y:-560, width:96, height:1000, skin:"wall"});
+boxes.push({x:-width-85,y:-460, width:96, height:1000, skin:"wall"});
 //right wall
 boxes.push({x:width*2-96, y:-910, width:96, height:1000, skin:"wall"});
 boxes.push({x:width*2-96, y:291, width:96, height:200, skin:"shortWall"});
@@ -149,13 +161,22 @@ boxes.push({x:ballroomStairs.x+210, y:ballroomStairs.y+30, width:10, height:2, s
 //ballroom 2nd floor
 //boxes.push({x:ballroom2.x, y:ballroom2.y+ballroom2.height-20, width:250, height:10, skin:"no"});
 boxes.push({x:ballroom2.x+420, y:ballroom2.y+ballroom2.height-20, width:780, height:10, skin:"rect"});
-//forrest
-boxes.push({x:800, y:-400, width:40, height:40, skin:"square"});
-boxes.push({x:ballroom.x+500, y:ballroom.y+1000, width:1200, height:40, skin:"rect"});
+//forest
+boxes.push({x:800, y:-430, width:40, height:40, skin:"square"});
+boxes.push({x:750, y:-380, width:20, height:20, skin:"square"});
+boxes.push({x:660, y:-325, width:20, height:20, skin:"square"});
+boxes.push({x:ballroom.x+190, y:ballroom.y+1000, width:1500, height:40, skin:"rect"});
+var stayOutOfTheForestSign = ({name:"stayOutOfTheForestSign", x:ballroom.x+1600, y:ballroom.y+915, width:55, height:85});
+//sewer
+boxes.push({x:grate.x, y:grate.y, width:30, height:grate.height, skin:"no"});
+boxes.push({x:grate.x+200, y:grate.y+50, width:30, height:30, skin:"square"});
+
+killers.push({name:"owl", x:ballroom.x+600, y:ballroom.y+800, width:63, height:91, dead:false, imgOffsetY:0, imgOffsetX:63, goingRight:true, frames:3, animSpeed:30, leftX:ballroom.x+500, rightX:ballroom.x+1520, speed:2});
+killers.push({name:"owl", x:ballroom.x+500, y:ballroom.y+830, width:63, height:91, dead:false, imgOffsetY:0, imgOffsetX:63, goingRight:true, frames:3, animSpeed:30, leftX:ballroom.x+500, rightX:ballroom.x+1520, speed:3});
 
 var trees1 = [];
 for (i=0;i<30;i++){
-  var x = Math.random()*((ballroom.x+1400)-(ballroom.x+600))+(ballroom.x+600);
+  var x = Math.random()*((ballroom.x+1200)-(ballroom.x+400))+(ballroom.x+400);
   var h = Math.random()*(350-250)+250;
   var w = Math.random()*(h-h*.4)+h*.4;
   var n = Math.random();
@@ -163,7 +184,7 @@ for (i=0;i<30;i++){
 }
 var trees2 = [];
 for (i=0;i<20;i++){
-  var x = Math.random()*((ballroom.x+1500)-(ballroom.x+500))+(ballroom.x+500);
+  var x = Math.random()*((ballroom.x+1300)-(ballroom.x+300))+(ballroom.x+300);
   var h = Math.random()*(350-150)+150;
   var w = Math.random()*(h-h*.4)+h*.4;
   var n = Math.random();
@@ -187,7 +208,7 @@ rungs.push({x:hotel4.x+280, y:hotel4.y+80, width:50, height:2});
 rungs.push({x:hotel4.x+280, y:hotel4.y+3, width:50, height:2});
 
 var movingObjects = []; //for moving the viewport
-movingObjects.push(forrestSign,balcony,skylight,ballroom2,ballroomStairs,ballroom,waterTower,fountain,elevator,motelSign,hotel1,hotel2,hotel3,hotel4,hotelDoor);
+movingObjects.push(stayOutOfTheForestSign,graves,pipes,grate,well,forestSign,balcony,skylight,ballroom2,ballroomStairs,ballroom,waterTower,fountain,elevator,motelSign,hotel1,hotel2,hotel3,hotel4,hotelDoor);
 
 for(i=0;i<boxes.length;i++){
 	movingObjects.push(boxes[i]);
@@ -204,22 +225,14 @@ for(i=0;i<ghosts.length;i++){
 for(i=0;i<cookies.length;i++){
 	movingObjects.push(cookies[i]);
 }
-//for(i=0;i<trees1.length;i++){
-	//movingObjects.push(trees1[i]);
-//}
 for(i=0;i<trees2.length;i++){
 	movingObjects.push(trees2[i]);
 }
 var pics = [];
 
-/*for(i=0;i<trees1.length;i++){
-	pics.push(trees1[i]);
-}*/
 
-pics.push(forrestSign,skylight,ballroom2,ballroom,hotel1,hotel2,hotel3,hotel4,waterTower,motelSign,elvis,player,balcony,ballroomStairs,elevator,hotelDoor,fountain);
-/*for(i=0;i<trees2.length;i++){
-	pics.push(trees2[i]);
-}*/
+pics.push(stayOutOfTheForestSign,graves,pipes,forestSign,skylight,ballroom2,ballroom,hotel1,hotel2,hotel3,hotel4,waterTower,motelSign,elvis,player,balcony,ballroomStairs,elevator,hotelDoor,fountain,well,grate);
+
 for(i=0;i<killers.length;i++){
 	pics.push(killers[i]);
 }
@@ -514,6 +527,11 @@ function update() {
       }
     }
     animate(fountain,0);
+    animate(well,0);
+
+    if(player.y>grate.y && player.x>grate.x+31){
+      player.x--;
+    }
 
     for (i=0; i<cookies.length; i++){
       dir = colCheck(player, cookies[i], 1);
@@ -580,10 +598,8 @@ if(elevator.goingUp===true){
   }
 }
 //fires in list mansion
-//for(var i=0; i<10; i++){
 if(player.x>ballroom.x && player.x<ballroom.x+ballroom.width && player.y<ballroom.y+ballroom.height){
-  //alert("fire 1");
-  if(frameCount%500===0){
+  if(frameCount%400===0){
     var xf = Math.random();
     var yf = Math.random();
     if(yf>.5){
@@ -591,12 +607,9 @@ if(player.x>ballroom.x && player.x<ballroom.x+ballroom.width && player.y<ballroo
     }else{
       yf=ballroom.y+300;
     }
-    //alert("fire 2");
     killers.push({name:"fire", x:xf*1000+ballroom.x, y:yf, width:41, height:77, dead:false, imgOffsetX:41, goingRight:true, frames:4, animSpeed:7, leftX: 1400, rightX:2160, speed:0});
-    //killers.push({name:"fire", x:600, y:-970, width:41, height:77, dead:false, imgOffsetX:41, goingRight:true, frames:4, animSpeed:7, leftX: 1400, rightX:2160, speed:0});
-    movingObjects.push(killers[killers.length-1])
+    movingObjects.push(killers[killers.length-1]);
     pics.push(killers[killers.length-1]);
-    //pics.push(pics.shift());
   }
 }
 
@@ -643,6 +656,10 @@ for(i=0;i<ghosts.length;i++){
     ctx.fillRect(0,0,width,height);
 
     drawTwo(city);
+    //sewer
+    ctx.fillStyle = "#1a0000";
+    ctx.fillRect(grate.x,grate.y-80,1500,grate.height+80);
+
     //draw boxes
   	for(i=0;i<boxes.length;i++){
       if(boxes[i].skin !== "no"){
@@ -667,6 +684,9 @@ for(i=0;i<ghosts.length;i++){
   ctx.fillStyle="rgba(255,255,255,.5)";
   ctx.fillRect(0,0,width,45);
 
+  //sewer sludge
+  ctx.fillStyle = "rgba(102, 51, 0, .8)";
+  ctx.fillRect(grate.x,grate.y+40,1500,grate.height-40);
 //cookie counter
   //cookieCount = 20;
   for (i=0;i<cookieCount;i++){
