@@ -16,8 +16,8 @@ canvas.getContext("2d").scale(2,2);
 
     var player = {
         x: width/2,
-        //y: -70,
-        y:-1500,
+        y: -70,
+        //y:-1500,
         width: 70,
         height: 94,
         speed: 3,
@@ -55,14 +55,14 @@ var balcony=({name:"balcony", x:ballroom.x+ballroom.width-10, y:ballroom2.y, wid
 var forestSign=({name:"forestSign", x:ballroom.x+1500, y:ballroom.y+270, width:63, height:80});
 var well = ({name:"well", x:ballroom.x+110, y:ballroom.y+820, width:90, height:228, frames:14, imgOffsetX:0, imgOffsetY:0, animSpeed:20});
 var graves = ({name:"graves", x:well.x+180, y:well.y+130, width:85, height:50});
-var grate = ({name:"grate", x:-width-85, y:height+90, width:96, height:110});
-var pipes = ({name:"pipes", x:grate.x+300, y:grate.y-80, width:500, height:100});
+var grate = ({name:"grate", x:-width-85, y:height+90, width:96, height:160});
+var pipes = ({name:"pipes", x:grate.x+200, y:grate.y-80, width:500, height:100});
 
 var killers = [];
-killers.push({name:"rat", x:grate.x+700, y:grate.y+25, width:27, height:28, dead:false, imgOffsetY:28, imgOffsetX:0,animSpeed:12, frames:3, goingRight:false, speed:.6, leftX:grate.x+grate.width, rightX:grate.x+1000});
-killers.push({name:"rat", x:grate.x+600, y:grate.y+25, width:27, height:28, dead:false, imgOffsetY:28, imgOffsetX:0,animSpeed:12, frames:3, goingRight:false, speed:1, leftX:grate.x+grate.width, rightX:grate.x+1000});
-killers.push({name:"rat", x:grate.x+550, y:grate.y+25, width:27, height:28, dead:false, imgOffsetY:28, imgOffsetX:0,animSpeed:12, frames:3, goingRight:false, speed:1.5, leftX:grate.x+grate.width, rightX:grate.x+1000});
-killers.push({name:"ratBabies", x:grate.x+200, y:grate.y+18, width:47, height:28, dead:false, imgOffsetY:28, imgOffsetX:0,animSpeed:12, frames:4, goingRight:false, speed:.6, leftX:grate.x+grate.width, rightX:grate.x+1000});
+killers.push({name:"rat", x:grate.x+700, y:grate.y+75, width:27, height:28, dead:false, imgOffsetY:28, imgOffsetX:0,animSpeed:12, frames:3, goingRight:false, speed:.6, leftX:grate.x+grate.width, rightX:grate.x+1000});
+killers.push({name:"rat", x:grate.x+600, y:grate.y+75, width:27, height:28, dead:false, imgOffsetY:28, imgOffsetX:0,animSpeed:12, frames:3, goingRight:false, speed:1, leftX:grate.x+grate.width, rightX:grate.x+1000});
+killers.push({name:"rat", x:grate.x+550, y:grate.y+75, width:27, height:28, dead:false, imgOffsetY:28, imgOffsetX:0,animSpeed:12, frames:3, goingRight:false, speed:1.5, leftX:grate.x+grate.width, rightX:grate.x+1000});
+killers.push({name:"ratBabies", x:grate.x+200, y:grate.y+68, width:47, height:28, dead:false, imgOffsetY:28, imgOffsetX:0,animSpeed:12, frames:4, goingRight:false, speed:.6, leftX:grate.x+grate.width, rightX:grate.x+1000});
 killers.push({name:"doctor", x:200, y:345, width:40, height:95, dead:false, imgOffsetY:0, imgOffsetX:40,animSpeed:7,frames:3,goingRight:false,speed:.3,leftX:-width+10,rightX:width*2-210});
 killers.push({name:"doctor", x:600, y:345, width:40, height:95, dead:false, imgOffsetY:95, imgOffsetX:40, animSpeed:7,frames:3,goingRight:true,speed:.3,leftX:-width+10,rightX:width*2-230});
 killers.push({name:"nurse", x:-200, y:343, width:40, height:97, dead:false, imgOffsetY:0, imgOffsetX:40,animSpeed:6,frames:3,goingRight:true,speed:1,leftX:-width+10,rightX:width*2-230});
@@ -117,7 +117,7 @@ boxes.push({x:2058, y:310, width:142, height:5, skin:"rect"});
 //floor
 boxes.push({x:-width+100, y:height-10, width:width*3.1, height: 20, skin:"rect"});
 //sewer floor
-boxes.push({x:-width-200, y:height+200, width:width*3.1, height: 20, skin:"rect"});
+boxes.push({x:-width-230, y:height+250, width:width*3+200, height: 20, skin:"rect"});
 boxes.push({x:fountain.x, y:fountain.y+fountain.height, width:fountain.width+5, height: 35, skin:"rect"});
 //right stairs
 boxes.push({x:700, y:380, width:40, height:40, skin:"square"});
@@ -129,7 +129,7 @@ boxes.push({x:1100, y:220, width:60, height:60, skin:"square"});
 boxes.push({x:-width-85,y:-460, width:96, height:1000, skin:"wall"});
 //right wall
 boxes.push({x:width*2-96, y:-910, width:96, height:1000, skin:"wall"});
-boxes.push({x:width*2-96, y:291, width:96, height:200, skin:"shortWall"});
+boxes.push({x:width*2-96, y:291, width:96, height:450, skin:"shortWall"});
 //stairs to list mansion
 boxes.push({x:width*2-200, y:-910, width:50, height:50, skin:"square"});
 boxes.push({x:width*2-350, y:-910, width:30, height:30, skin:"square"});
@@ -159,7 +159,6 @@ boxes.push({x:ballroomStairs.x+180, y:ballroomStairs.y+60, width:10, height:2, s
 boxes.push({x:ballroomStairs.x+210, y:ballroomStairs.y+30, width:10, height:2, skin:"no"});
 
 //ballroom 2nd floor
-//boxes.push({x:ballroom2.x, y:ballroom2.y+ballroom2.height-20, width:250, height:10, skin:"no"});
 boxes.push({x:ballroom2.x+420, y:ballroom2.y+ballroom2.height-20, width:780, height:10, skin:"rect"});
 //forest
 boxes.push({x:800, y:-430, width:40, height:40, skin:"square"});
@@ -169,7 +168,10 @@ boxes.push({x:ballroom.x+190, y:ballroom.y+1000, width:1500, height:40, skin:"re
 var stayOutOfTheForestSign = ({name:"stayOutOfTheForestSign", x:ballroom.x+1600, y:ballroom.y+915, width:55, height:85});
 //sewer
 boxes.push({x:grate.x, y:grate.y, width:30, height:grate.height, skin:"no"});
-boxes.push({x:grate.x+200, y:grate.y+50, width:30, height:30, skin:"square"});
+boxes.push({x:grate.x+1280, y:grate.y+95, width:30, height:30, skin:"square"});
+boxes.push({x:grate.x+800, y:grate.y+35, width:400, height:30, skin:"rect"});
+killers.push({name:"freeway1", x:grate.x+850, y:grate.y+5, width:113, height:38, dead:false, imgOffsetY:0, imgOffsetX: 113, goingRight:true, frames:5, animSpeed:10, speed:0, leftX:grate.x, rightX:grate.x+3000});
+killers.push({name:"freeway2", x:grate.x+1050, y:grate.y-30, width:65, height:65, dead:false, imgOffsetY:0, imgOffsetX: 62, goingRight:true, frames:4, animSpeed:15, speed:0, leftX:grate.x, rightX:grate.x+3000});
 
 killers.push({name:"owl", x:ballroom.x+600, y:ballroom.y+800, width:63, height:91, dead:false, imgOffsetY:0, imgOffsetX:63, goingRight:true, frames:3, animSpeed:30, leftX:ballroom.x+500, rightX:ballroom.x+1520, speed:2});
 killers.push({name:"owl", x:ballroom.x+500, y:ballroom.y+830, width:63, height:91, dead:false, imgOffsetY:0, imgOffsetX:63, goingRight:true, frames:3, animSpeed:30, leftX:ballroom.x+500, rightX:ballroom.x+1520, speed:3});
@@ -261,7 +263,7 @@ var waterTowerSounds = new Audio('waterTowerSounds.wav');
 var listSong = new Audio('DminorFugue.mp3');
 
 //initialize some variables
-var cookieCount = 0;
+var cookieCount = 10;
 var karenHealth = 100;
 var georgiaHealth = 100;
 var frameCount = 0;//loops from 0 to 1000
@@ -658,7 +660,7 @@ for(i=0;i<ghosts.length;i++){
     drawTwo(city);
     //sewer
     ctx.fillStyle = "#1a0000";
-    ctx.fillRect(grate.x,grate.y-80,1500,grate.height+80);
+    ctx.fillRect(grate.x,grate.y-80,2100,grate.height+130);
 
     //draw boxes
   	for(i=0;i<boxes.length;i++){
@@ -686,9 +688,8 @@ for(i=0;i<ghosts.length;i++){
 
   //sewer sludge
   ctx.fillStyle = "rgba(102, 51, 0, .8)";
-  ctx.fillRect(grate.x,grate.y+40,1500,grate.height-40);
-//cookie counter
-  //cookieCount = 20;
+  ctx.fillRect(grate.x-130,grate.y+90,2220,grate.height-40);
+
   for (i=0;i<cookieCount;i++){
     image = document.getElementById("cookiePic");
     draw(image, 0, 0, image.width, image.height,25*i+300, 10, image.width, image.height);
