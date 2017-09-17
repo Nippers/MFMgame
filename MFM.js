@@ -56,27 +56,37 @@ var forestSign=({name:"forestSign", x:ballroom.x+1500, y:ballroom.y+270, width:6
 var well = ({name:"well", x:ballroom.x+110, y:ballroom.y+820, width:90, height:228, frames:14, imgOffsetX:0, imgOffsetY:0, animSpeed:20});
 var graves = ({name:"graves", x:well.x+180, y:well.y+130, width:85, height:50});
 var grate = ({name:"grate", x:-width-85, y:height+90, width:96, height:160});
-var pipes = ({name:"pipes", x:grate.x+200, y:grate.y-80, width:500, height:100});
+var pipes = ({name:"pipes", x:grate.x+700, y:grate.y-80, width:500, height:160});
+var pipes2 = ({name:"pipes2", x:grate.x+200, y:grate.y-80, width:330, height:120, frames:5, imgOffsetX:0, animSpeed:10});
+var pipes3 = ({name:"pipes2", x:grate.x+1650, y:grate.y-80, width:330, height:120, frames:5, imgOffsetX:0, animSpeed:10});
+var ratsPipe = ({name:"ratsPipe", x:grate.x+2005, y:grate.y+60, width:85, height:50});
+var manhole = ({name:"manhole", x:-200, y:height-10, width:80, height:20});
+var home = ({name:"home", x:-500, y:190, width:250, height:250});
+var well2 = ({name:"well2", x:-690, y:345, width:80, height:125});
+var sewerLadder = ({name:"sewerLadder", x:manhole.x+7, y:manhole.y+20, width:65, height:200});
 
 var killers = [];
-killers.push({name:"rat", x:grate.x+700, y:grate.y+75, width:27, height:28, dead:false, imgOffsetY:28, imgOffsetX:0,animSpeed:12, frames:3, goingRight:false, speed:.6, leftX:grate.x+grate.width, rightX:grate.x+1000});
-killers.push({name:"rat", x:grate.x+600, y:grate.y+75, width:27, height:28, dead:false, imgOffsetY:28, imgOffsetX:0,animSpeed:12, frames:3, goingRight:false, speed:1, leftX:grate.x+grate.width, rightX:grate.x+1000});
-killers.push({name:"rat", x:grate.x+550, y:grate.y+75, width:27, height:28, dead:false, imgOffsetY:28, imgOffsetX:0,animSpeed:12, frames:3, goingRight:false, speed:1.5, leftX:grate.x+grate.width, rightX:grate.x+1000});
-killers.push({name:"ratBabies", x:grate.x+200, y:grate.y+68, width:47, height:28, dead:false, imgOffsetY:28, imgOffsetX:0,animSpeed:12, frames:4, goingRight:false, speed:.6, leftX:grate.x+grate.width, rightX:grate.x+1000});
-killers.push({name:"doctor", x:200, y:345, width:40, height:95, dead:false, imgOffsetY:0, imgOffsetX:40,animSpeed:7,frames:3,goingRight:false,speed:.3,leftX:-width+10,rightX:width*2-210});
-killers.push({name:"doctor", x:600, y:345, width:40, height:95, dead:false, imgOffsetY:95, imgOffsetX:40, animSpeed:7,frames:3,goingRight:true,speed:.3,leftX:-width+10,rightX:width*2-230});
-killers.push({name:"nurse", x:-200, y:343, width:40, height:97, dead:false, imgOffsetY:0, imgOffsetX:40,animSpeed:6,frames:3,goingRight:true,speed:1,leftX:-width+10,rightX:width*2-230});
-killers.push({name:"nurse", x:1400, y:-17, width:40, height:97, dead:false, imgOffsetY:0, imgOffsetX:40,animSpeed:6,frames:3,goingRight:true,speed:1,leftX:1400,rightX:2045});
-killers.push({name:"doctor", x:1450, y:-17, width:40, height:95, dead:false, imgOffsetY:0, imgOffsetX:40,animSpeed:7,frames:3,goingRight:true,speed:.3,leftX:1400,rightX:2045});
-killers.push({name:"nurse", x:1600, y:-225, width:40, height:97, dead:false, imgOffsetY:0, imgOffsetX:40,animSpeed:6,frames:3,goingRight:true,speed:1,leftX:1400,rightX:2045});
-killers.push({name:"nurse", x:1800, y:-425, width:40, height:97, dead:false, imgOffsetY:0, imgOffsetX:40,animSpeed:6,frames:3,goingRight:true,speed:1,leftX:1400,rightX:2045});
-killers.push({name:"doctor", x:1850, y:-425, width:40, height:95, dead:false, imgOffsetY:0, imgOffsetX:40,animSpeed:7,frames:3,goingRight:true,speed:.3,leftX:1400,rightX:2045});
-killers.push({name:"nurse", x:1600, y:-620, width:40, height:97, dead:false, imgOffsetY:0, imgOffsetX:40,animSpeed:6,frames:3,goingRight:true,speed:1,leftX:1400,rightX:2045});
-killers.push({name:"nurse", x:1800, y:-620, width:40, height:97, dead:false, imgOffsetY:0, imgOffsetX:40,animSpeed:6,frames:3,goingRight:true,speed:1,leftX:1400,rightX:2045});
-killers.push({name:"nurse", x:2000, y:-620, width:40, height:97, dead:false, imgOffsetY:0, imgOffsetX:40,animSpeed:6,frames:3,goingRight:true,speed:1,leftX:1400,rightX:2045});
+killers.push({name:"rat", x:grate.x+700, y:grate.y+75, width:27, height:28, dead:false, imgOffsetY:28, imgOffsetX:0,animSpeed:12, frames:3, goingRight:false, speed:.6, leftX:grate.x+grate.width, rightX:grate.x+2060});
+killers.push({name:"rat", x:grate.x+600, y:grate.y+75, width:27, height:28, dead:false, imgOffsetY:28, imgOffsetX:0,animSpeed:12, frames:3, goingRight:false, speed:1, leftX:grate.x+grate.width, rightX:grate.x+2060});
+killers.push({name:"rat", x:grate.x+550, y:grate.y+75, width:27, height:28, dead:false, imgOffsetY:28, imgOffsetX:0,animSpeed:12, frames:3, goingRight:false, speed:1.5, leftX:grate.x+grate.width, rightX:grate.x+2060});
+killers.push({name:"ratBabies", x:grate.x+200, y:grate.y+68, width:47, height:28, dead:false, imgOffsetY:28, imgOffsetX:0,animSpeed:12, frames:4, goingRight:false, speed:.6, leftX:grate.x+grate.width, rightX:grate.x+2040});
+//ground level
+killers.push({name:"doctor", x:200, y:345, width:40, height:95, dead:false, imgOffsetY:0, imgOffsetX:40,animSpeed:7,frames:3,goingRight:false,speed:.3,leftX:-250,rightX:width*2-210});
+killers.push({name:"doctor", x:600, y:345, width:40, height:95, dead:false, imgOffsetY:95, imgOffsetX:40, animSpeed:7,frames:3,goingRight:true,speed:.3,leftX:-250,rightX:width*2-230});
+killers.push({name:"nurse", x:-200, y:343, width:40, height:97, dead:false, imgOffsetY:0, imgOffsetX:40,animSpeed:6,frames:3,goingRight:true,speed:1,leftX:-250,rightX:width*2-230});
+//hotel
+killers.push({name:"unterweger", x:1400, y:-37, width:47, height:118, dead:false, imgOffsetX:47,animSpeed:12,frames:5,goingRight:true,speed:1,leftX:1400,rightX:2045});
+killers.push({name:"ramirez", x:1450, y:-27, width:47, height:110, dead:false, imgOffsetX:40,animSpeed:7,frames:7,goingRight:true,speed:.3,leftX:1400,rightX:2045});
+killers.push({name:"unterweger", x:1600, y:-245, width:47, height:118, dead:false, imgOffsetX:84,animSpeed:10,frames:5,goingRight:true,speed:1,leftX:1400,rightX:2045});
+killers.push({name:"unterweger", x:1800, y:-445, width:47, height:118, dead:false, imgOffsetX:131,animSpeed:12,frames:5,goingRight:true,speed:1,leftX:1400,rightX:2045});
+killers.push({name:"ramirez", x:1850, y:-435, width:47, height:110, dead:false, imgOffsetX:40,animSpeed:7,frames:7,goingRight:true,speed:.3,leftX:1400,rightX:2045});
+killers.push({name:"ramirez", x:1600, y:-635, width:47, height:110, dead:false, imgOffsetX:40,animSpeed:6,frames:7,goingRight:true,speed:1,leftX:1400,rightX:2045});
+killers.push({name:"unterweger", x:1800, y:-642, width:47, height:118, dead:false, imgOffsetX:47,animSpeed:10,frames:5,goingRight:true,speed:2,leftX:1400,rightX:2045});
+killers.push({name:"unterweger", x:2000, y:-642, width:47, height:118, dead:false, imgOffsetX:94,animSpeed:12,frames:5,goingRight:true,speed:1,leftX:1400,rightX:2045});
 killers.push({name:"ramirez", x:1400, y:180, width:47, height:110, dead:false, imgOffsetX:47, goingRight:true, frames:7, animSpeed:10, leftX: 1400, rightX:2160, speed:1});
-killers.push({name:"johnList", x:200, y:-1015, width:107, height:105, dead:false, imgOffsetY:0, imgOffsetX:107, goingRight:true, frames:5, animSpeed:10, leftX:200, rightX:700, speed:.5});
-
+//list mansion
+killers.push({name:"johnList", x:-200, y:-1015, width:107, height:105, dead:false, imgOffsetY:0, imgOffsetX:107, goingRight:true, frames:5, animSpeed:10, leftX:200, rightX:700, speed:.5});
+killers.push({name:"johnList", x:200, y:-1015, width:107, height:105, dead:false, imgOffsetY:0, imgOffsetX:107, goingRight:true, frames:5, animSpeed:10, leftX:-200, rightX:700, speed:.5});
 
 var ghosts = [];
 ghosts.push({name:"elisa", x:1800, y:160, width:15, height:92, imgOffsetY:0, imgOffsetX:0});
@@ -112,10 +122,18 @@ cookies.push({name:"cookie", x:ballroom.x+900, y:ballroom.y-180, width:19, heigh
 cookies.push({name:"cookie", x:ballroom.x+1250, y:ballroom.y-200, width:19, height:19, eaten:false});
 
 var boxes = [];
+
 //elevator floor
 boxes.push({x:2058, y:310, width:142, height:5, skin:"rect"});
+//well wall
+boxes.push({x:well.x+well.width-20, y:well.y+150, width:10, height:600, skin:"no"});
 //floor
-boxes.push({x:-width+100, y:height-10, width:width*3.1, height: 20, skin:"rect"});
+boxes.push({x:-width+90, y:height-10, width:410, height: 20, skin:"rect"});
+boxes.push({x:-width+580, y:height-10, width:width*3, height: 20, skin:"rect"});
+//topiary
+boxes.push({x:-50, y:305, width:46, height:135, skin:"topiary"});
+boxes.push({x:(width*2-46)+895, y:-645, width:46, height:135, skin:"topiary"});
+
 //sewer floor
 boxes.push({x:-width-230, y:height+250, width:width*3+200, height: 20, skin:"rect"});
 boxes.push({x:fountain.x, y:fountain.y+fountain.height, width:fountain.width+5, height: 35, skin:"rect"});
@@ -164,17 +182,26 @@ boxes.push({x:ballroom2.x+420, y:ballroom2.y+ballroom2.height-20, width:780, hei
 boxes.push({x:800, y:-430, width:40, height:40, skin:"square"});
 boxes.push({x:750, y:-380, width:20, height:20, skin:"square"});
 boxes.push({x:660, y:-325, width:20, height:20, skin:"square"});
-boxes.push({x:ballroom.x+190, y:ballroom.y+1000, width:1500, height:40, skin:"rect"});
+boxes.push({x:ballroom.x+190, y:ballroom.y+1000, width:1600, height:40, skin:"rect"});
 var stayOutOfTheForestSign = ({name:"stayOutOfTheForestSign", x:ballroom.x+1600, y:ballroom.y+915, width:55, height:85});
 //sewer
-boxes.push({x:grate.x, y:grate.y, width:30, height:grate.height, skin:"no"});
-boxes.push({x:grate.x+1280, y:grate.y+95, width:30, height:30, skin:"square"});
-boxes.push({x:grate.x+800, y:grate.y+35, width:400, height:30, skin:"rect"});
-killers.push({name:"freeway1", x:grate.x+850, y:grate.y+5, width:113, height:38, dead:false, imgOffsetY:0, imgOffsetX: 113, goingRight:true, frames:5, animSpeed:10, speed:0, leftX:grate.x, rightX:grate.x+3000});
-killers.push({name:"freeway2", x:grate.x+1050, y:grate.y-30, width:65, height:65, dead:false, imgOffsetY:0, imgOffsetX: 62, goingRight:true, frames:4, animSpeed:15, speed:0, leftX:grate.x, rightX:grate.x+3000});
-
+boxes.push({x:grate.x, y:grate.y, width:30, height:grate.height, skin:"no"});//grate
+boxes.push({x:grate.x+1780, y:grate.y+95, width:30, height:30, skin:"square"});
+boxes.push({x:grate.x+1300, y:grate.y+35, width:400, height:30, skin:"rect"});
+killers.push({name:"freeway1", x:grate.x+1350, y:grate.y+5, width:113, height:38, dead:false, imgOffsetY:0, imgOffsetX: 113, goingRight:true, frames:5, animSpeed:10, speed:0, leftX:grate.x, rightX:grate.x+3000});
+killers.push({name:"freeway2", x:grate.x+1550, y:grate.y-30, width:65, height:65, dead:false, imgOffsetY:0, imgOffsetX: 62, goingRight:true, frames:4, animSpeed:15, speed:0, leftX:grate.x, rightX:grate.x+3000});
+boxes.push({x:grate.x+1230, y:grate.y+45, width:20, height:20, skin:"square"});
+boxes.push({x:pipes.x, y:pipes.y+102, width:290, height:10, skin:"no"});
+boxes.push({x:pipes.x+300, y:pipes.y+135, width:200, height:10, skin:"no"});
+//forest
 killers.push({name:"owl", x:ballroom.x+600, y:ballroom.y+800, width:63, height:91, dead:false, imgOffsetY:0, imgOffsetX:63, goingRight:true, frames:3, animSpeed:30, leftX:ballroom.x+500, rightX:ballroom.x+1520, speed:2});
 killers.push({name:"owl", x:ballroom.x+500, y:ballroom.y+830, width:63, height:91, dead:false, imgOffsetY:0, imgOffsetX:63, goingRight:true, frames:3, animSpeed:30, leftX:ballroom.x+500, rightX:ballroom.x+1520, speed:3});
+killers.push({name:"pishushkin", x:ballroom.x+400, y:ballroom.y+890, width:47, height:111, dead:false, imgOffsetX:47, goingRight:true, frames:5, animSpeed:25, leftX:ballroom.x+500, rightX:ballroom.x+1520, speed:1.2});
+killers.push({name:"pishushkin", x:ballroom.x+500, y:ballroom.y+890, width:47, height:111, dead:false, imgOffsetX:47, goingRight:true, frames:5, animSpeed:20, leftX:ballroom.x+500, rightX:ballroom.x+1520, speed:1.5});
+killers.push({name:"pishushkin", x:ballroom.x+300, y:ballroom.y+890, width:47, height:111, dead:false, imgOffsetX:47, goingRight:true, frames:5, animSpeed:30, leftX:ballroom.x+500, rightX:ballroom.x+1520, speed:1});
+cookies.push({name:"cookie", x:ballroom.x+1750, y:ballroom.y+850, width:19, height:19, eaten:false});
+cookies.push({name:"cookie", x:ballroom.x+900, y:ballroom.y+850, width:19, height:19, eaten:false});
+cookies.push({name:"cookie", x:ballroom.x+250, y:ballroom.y+850, width:19, height:19, eaten:false});
 
 var trees1 = [];
 for (i=0;i<30;i++){
@@ -209,8 +236,12 @@ rungs.push({x:waterTower.x, y:waterTower.y+169, width:200, height:2});
 rungs.push({x:hotel4.x+280, y:hotel4.y+80, width:50, height:2});
 rungs.push({x:hotel4.x+280, y:hotel4.y+3, width:50, height:2});
 
+rungs.push({x:manhole.x, y:manhole.y, width:manhole.width, height:5});
+rungs.push({x:manhole.x, y:manhole.y+60, width:manhole.width, height:5});
+rungs.push({x:manhole.x, y:manhole.y+120, width:manhole.width, height:5});
+
 var movingObjects = []; //for moving the viewport
-movingObjects.push(stayOutOfTheForestSign,graves,pipes,grate,well,forestSign,balcony,skylight,ballroom2,ballroomStairs,ballroom,waterTower,fountain,elevator,motelSign,hotel1,hotel2,hotel3,hotel4,hotelDoor);
+movingObjects.push(sewerLadder,well2,home,manhole,stayOutOfTheForestSign,graves,ratsPipe,pipes,pipes2,pipes3,grate,well,forestSign,balcony,skylight,ballroom2,ballroomStairs,ballroom,waterTower,fountain,elevator,motelSign,hotel1,hotel2,hotel3,hotel4,hotelDoor);
 
 for(i=0;i<boxes.length;i++){
 	movingObjects.push(boxes[i]);
@@ -233,11 +264,12 @@ for(i=0;i<trees2.length;i++){
 var pics = [];
 
 
-pics.push(stayOutOfTheForestSign,graves,pipes,forestSign,skylight,ballroom2,ballroom,hotel1,hotel2,hotel3,hotel4,waterTower,motelSign,elvis,player,balcony,ballroomStairs,elevator,hotelDoor,fountain,well,grate);
+pics.push(home,stayOutOfTheForestSign,graves,pipes2,pipes3,sewerLadder,forestSign,skylight,ballroom2,ballroom,hotel1,hotel2,hotel3,hotel4,waterTower,motelSign,elvis,player,balcony,ballroomStairs,elevator,hotelDoor,fountain,well,well2,grate,manhole,pipes);
 
 for(i=0;i<killers.length;i++){
 	pics.push(killers[i]);
 }
+pics.push(ratsPipe);
 for(i=0;i<ghosts.length;i++){
 	pics.push(ghosts[i]);
 }
@@ -250,20 +282,17 @@ var animations = [];
 
 var soundOn=true;
 //sound files
-//var jumpSound = new Audio('jump.wav');
 var hitSound = new Audio('hit.wav');
 var cookieSound = new Audio('cookie.wav');
 var killSound = new Audio('kill.wav');
 var song = new Audio('tribal.wav');
-//var song = new Audio('mfm2.wav');
-//var cecilSong = new Audio('cecilSong2.wav');
 var cecilSong = new Audio('hotel.wav');
 var waterTowerSounds = new Audio('waterTowerSounds.wav');
-
 var listSong = new Audio('DminorFugue.mp3');
-
+var sewerSong = new Audio('sewer.wav');
+var diceSound = new Audio('dice.wav');
 //initialize some variables
-var cookieCount = 10;
+var cookieCount = 0;
 var karenHealth = 100;
 var georgiaHealth = 100;
 var frameCount = 0;//loops from 0 to 1000
@@ -272,10 +301,7 @@ var viewportNorm = 103;
 
 if(soundOn){
   song.loop=true;
-  song.play();
-  //cecilSong.loop=true;
-  //cecilSong.play();
-  //cecilSong.volume = 0;
+  //song.play();
 }
 function update() {
 
@@ -302,16 +328,23 @@ function update() {
       }else{
         waterTowerSounds.pause();
       }
-      //cecilSong.volume=1;
     }else{
-      //cecilSong.pause();
       cecilSong.pause();
     }
+  }else if (player.y>home.y+home.height){
+    if(soundOn){
+      sewerSong.play();
+      diceSound.play();
+    }else{
+      sewerSong.pause();
+      diceSound.pause();
+    }
   }else{
-    //cecilSong.pause();
     cecilSong.pause();
     listSong.pause();
     waterTowerSounds.pause();
+    sewerSong.pause();
+    diceSound.pause();
     if(soundOn){
       song.play();
     }
@@ -410,7 +443,13 @@ function update() {
       }
     }
 
-
+    if(player.jumping){
+      if(karenHealth>0 && georgiaHealth>0){
+        player.imgOffsetX = player.width*8;
+      }else{
+        player.imgOffsetX = player.width*6;
+      }
+    }
     if(!keys[37] && !keys[39] && !keys[38] && !keys[32]){
       player.imgOffsetX=0;
     }
@@ -475,6 +514,18 @@ function update() {
         if (dir === "b") {
             player.grounded = true;
             player.jumping = false;
+            if(killers[i].name==="fire"){
+              if(karenHealth>0 & georgiaHealth>0){
+                player.imgOffsetX=player.width*7;
+              }else{
+                player.imgOffsetX=player.width*5;
+              }
+              if(soundOn){
+                hitSound.play();
+              }
+                karenHealth-=.5;
+                georgiaHealth-=.5;
+            }
         }
         if(karenHealth>0&&georgiaHealth>0){
           if(dir==="r"){
@@ -530,8 +581,10 @@ function update() {
     }
     animate(fountain,0);
     animate(well,0);
+    animate(pipes2,0);
+    animate(pipes3,0);
 
-    if(player.y>grate.y && player.x>grate.x+31){
+    if(player.y+player.height > grate.y+60 && player.x>grate.x+31){
       player.x--;
     }
 
@@ -601,15 +654,16 @@ if(elevator.goingUp===true){
 }
 //fires in list mansion
 if(player.x>ballroom.x && player.x<ballroom.x+ballroom.width && player.y<ballroom.y+ballroom.height){
-  if(frameCount%400===0){
-    var xf = Math.random();
+  if(frameCount%200===0){
     var yf = Math.random();
     if(yf>.5){
       yf=ballroom2.y+230;
+      xf = Math.random()*500+ballroom.x+500;
     }else{
       yf=ballroom.y+300;
+      xf = Math.random()*1000+ballroom.x;
     }
-    killers.push({name:"fire", x:xf*1000+ballroom.x, y:yf, width:41, height:77, dead:false, imgOffsetX:41, goingRight:true, frames:4, animSpeed:7, leftX: 1400, rightX:2160, speed:0});
+    killers.push({name:"fire", x:xf, y:yf, width:41, height:77, dead:false, imgOffsetX:41, goingRight:true, frames:4, animSpeed:7, leftX: 1400, rightX:2160, speed:0});
     movingObjects.push(killers[killers.length-1]);
     pics.push(killers[killers.length-1]);
   }
@@ -658,9 +712,10 @@ for(i=0;i<ghosts.length;i++){
     ctx.fillRect(0,0,width,height);
 
     drawTwo(city);
+
     //sewer
-    ctx.fillStyle = "#1a0000";
-    ctx.fillRect(grate.x,grate.y-80,2100,grate.height+130);
+    ctx.fillStyle="#1a0000";
+    ctx.fillRect(grate.x,grate.y-80,2100,250);
 
     //draw boxes
   	for(i=0;i<boxes.length;i++){
@@ -699,8 +754,6 @@ for(i=0;i<ghosts.length;i++){
   //karen
   image = document.getElementById("karenHeadPic");
   draw(image, 0, 0, image.width, image.height,0, 10, image.width, image.height);
-  //ctx.rect(29,14,102,17);
-  //ctx.stroke();
   ctx.fillStyle="black";
   ctx.fillRect(28,13,104,19);
   if(karenHealth>0){
@@ -748,7 +801,30 @@ for(i=0;i<ghosts.length;i++){
       player.frames=7;
     }
   }
-
+//ending
+if(player.y>home.y&&player.y<home.y+home.height&&player.x>home.x&&player.x<home.x+home.width&&home.x+home.width>0){
+  done = true;
+}
+if(done===true){
+  document.getElementById("replayButton").style.display="inline";
+  if(georgiaHealth>0){
+    if(karenHealth>0){
+      var endingText = "Everyone stayed sexy and didn't get murdered. You win!";
+    }else{
+      var endingText = "But you let Karen get murdered, so that's not super amazing.";
+    }
+  }else{
+    if(karenHealth>0){
+      var endingText = "But you let Georgia get murdered, so that's not super amazing.";
+    }else{
+      var endingText = "But you let Karen and Georgia get murdered. That's horrible.";
+    }
+  }
+  ctx.font = "18px Courier";
+  ctx.fillStyle = "white";
+  ctx.fillText("Elvis! You made it home!",10,80);
+  ctx.fillText(endingText,10,110);
+}
 
 
 }//end main loop
@@ -774,8 +850,6 @@ function animate(killer,start){
     killer.x-=killer.speed;
     if(typeof(killer.imgOffsetY)==="number"){
       killer.imgOffsetY=killer.height;
-    //}else{
-      //killer.imgOffsetY=0;
     }
     if(killer.x<killer.leftX){
       killer.goingRight=true;
@@ -796,11 +870,7 @@ function drawTwo(pic){
       }else if(typeof(pic.imgOffset)==="number"){
         ctx.drawImage(document.getElementById(pic.name+"Pic"),pic.imgOffset,0,pic.width,pic.height,pic.x,pic.y,pic.width,pic.height);
       }else{
-        //if(typeof(pic.boxWidth)==="number"){
-          //ctx.drawImage(document.getElementById(pic.name+"Pic"),0,0,pic.width,pic.height,pic.x,pic.y,pic.Boxwidth,pic.Boxheight);
-        //}else{
     	    ctx.drawImage(document.getElementById(pic.name+"Pic"),0,0,pic.width,pic.height,pic.x,pic.y,pic.width,pic.height);
-        //}
       }
     }
   }
@@ -880,8 +950,11 @@ document.body.addEventListener("keyup", function (e) {
 
 
 window.addEventListener("load", function () {
-    update();
+    //update();
+    //start();
 });
 
-//setInterval(update(), 100);
-setInterval(function(){update();}, 16);
+function start(){
+  document.getElementById("startScreen").style.display="none";
+  setInterval(function(){update();}, 16);
+}

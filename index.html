@@ -1,6 +1,32 @@
 
 <canvas id="canvas" style="border:1px solid black"></canvas>
+<button id="replayButton" onClick="window.location.reload()" style="display:none;position:absolute;top:140px;left:20px;font-size:18;">Play Again</button>
 <img id="soundButton" src="mute.svg" onclick="toggleSound()" style="width:20px">
+<br>
+
+<div id="startScreen" style="width:700;position:absolute;top:20px;left:10px;font-size:18;text-align:center;font-family:monospace;">
+  <div>
+  <!--<h1>My Favorite Murder</h1>-->
+  <img src="blockMFM.png" style="width:500px;">
+  <img src="blood.png">
+</div>
+  <img src="K&G.gif" style="float:right">
+  <!--<img src="largeGeorgia.png" style="float:right">-->
+  <div style="text-align:right;">
+    <br>A Game by Julia<br>
+    Based on the podcast by<br>
+    Karen Kilgariff & Georgia Hardstark<br><br>
+  </div>
+  <div style="font-size:22px;font-family:helvetica;">
+      <img src="arrowButtons.png"><b> Use arrow keys to move and jump<br>
+      <img src="bigCookie.png"> Cookies are ammo<br>
+      <img src="spaceButton.png"> Hold space to attack<br><br></b>
+  </div>
+
+<button id="startButton" onclick="start()" style="font-size:40px;border:3px solid red;background-color:white;">Play</button>
+</div>
+
+
 <img id="wallPic" src="https://2.bp.blogspot.com/-NeJkWxS_JGE/WVWIU7aA86I/AAAAAAAAFp8/dKPzYHdUimQvHsB-PPWiGkDSPTfqnzGSgCLcBGAs/s1600/wall%2B%25284%2529.png" style="display:none">
 <img id="shortWallPic" src="shortWall.png" style="display:none">
 <img id="squarePic" src="https://2.bp.blogspot.com/-SanSVLd-r_U/WVV4SMJHDgI/AAAAAAAAFpo/v6BEacW14cY8Gf8lhWSTb6qZuBb01SUOwCLcBGAs/s1600/block%2B%25284%2529.png" style="display:none">
@@ -12,21 +38,23 @@
 <img id="mailboxPic" src="https://1.bp.blogspot.com/-XVaw54WSelQ/WVcWiybRIcI/AAAAAAAAFrw/ouz_M_No1_EbqJXgVlPXVkNxS40DmTjSACLcBGAs/s1600/mailbox%2B%25283%2529.png" style="display:none">
 <img id="cityPic" src="https://1.bp.blogspot.com/-7QnAR1nlLEo/WX_AxGTf3kI/AAAAAAAAGFI/62Yz7OJJqgUepdtUz41bFGKUykjwKu3LQCLcBGAs/s1600/city%2Bclone%2Bclone%2B%25282%2529.png" style="display:none">
 <img id="ladderPic" src="https://4.bp.blogspot.com/-LfPsgmyEnac/WXTya5gMkHI/AAAAAAAAF7c/TZE0pBJVy44U4hMz6T6MJ5CrsvVjEdYBACLcBGAs/s1600/ladder.png" style="display:none">
-<img id="karenGeorgiaPic" src="https://2.bp.blogspot.com/-BLWLu6nZR2I/WX_YeviL1zI/AAAAAAAAGFk/HKCaM0Eu6eowKoUT1zxlqworXcx7TIDzwCLcBGAs/s1600/K%2526G%2Bswitch%2B%25285%2529.png" style="display:none">
+<img id="karenGeorgiaPic" src="karenGeorgia.png" style="display:none">
 <img id="elvisPic" src="https://1.bp.blogspot.com/-a9lSZL_NDOo/WX-971aHgOI/AAAAAAAAGE4/BXOKrPcVF3EXfIEy8G5M6jGVscDJ8VScwCLcBGAs/s1600/elvis%2Bclone%2Bclone.png" style="display:none">
-<img id="cookiePic" src="https://3.bp.blogspot.com/-cXA9_4jjS9k/WX-JLk89SrI/AAAAAAAAGD0/ZuANVGxOrLg-jhGl_nRPcp4Q1U4UdUEWgCLcBGAs/s1600/cookie.png" style="display:none">
+<img id="cookiePic" src="cookie.png" style="display:none">
 
 <img id="karenHeadPic" src="https://2.bp.blogspot.com/-nF5f6gB17l4/WX-UD0A3_MI/AAAAAAAAGEE/vVbph-gUG2kyVKESwPzOAFE0XIjSnNJOwCLcBGAs/s1600/karen%2Bhead.png" style="display:none">
 <img id="deadKarenHeadPic" src="https://2.bp.blogspot.com/-Ux-z1wHtSXE/WYJMGI8767I/AAAAAAAAGLA/L9j06ecNTAAQI4MYoGAtaHAk6dtSO-p5wCLcBGAs/s1600/karen%2Bhead%2Bclone.png" style="display:none">
-<img id="karenPic" src="https://2.bp.blogspot.com/-agg-s728B9s/WYJyBUsF3TI/AAAAAAAAGLg/mtN3cUhuotg-AGHfHHcDtjHTcGbXtX3LgCLcBGAs/s1600/karen%2B%25283%2529.png" style="display:none">
+<img id="karenPic" src="karen.png" style="display:none">
 
 <img id="georgiaHeadPic" src="https://1.bp.blogspot.com/-wxqpq5nXf0I/WX-UD3mlB0I/AAAAAAAAGEA/RFBEo65cv-ox74-seU-W_tvD5GQTtpbDQCLcBGAs/s1600/georgia%2Bhead.png" style="display:none">
 <img id="deadGeorgiaHeadPic" src="https://3.bp.blogspot.com/-Zw32yiktWLs/WYJMGFDdqQI/AAAAAAAAGLE/4SopDAyoN280OMxiySY5fK8GyGOOB5a3QCLcBGAs/s1600/georgia%2Bhead%2Bclone.png" style="display:none">
-<img id="georgiaPic" src="https://1.bp.blogspot.com/-az3sziCRd4Q/WYJyBcIMEuI/AAAAAAAAGLk/N0qVt16_i3EtVAAKFRq-KKE4l0ELgZmtwCLcBGAs/s1600/georgia%2B%25282%2529.png" style="display:none">
+<img id="georgiaPic" src="georgia.png" style="display:none">
 
 <img id="motelSignPic" src="https://2.bp.blogspot.com/-p8uGTsZnuBw/WYId_ZXFqpI/AAAAAAAAGKA/e2L7AOBDmVEWQ1oVzWKTNr0AwuIEQU-EQCLcBGAs/s1600/Cecil%2Bsign%2Bclone.png" style="display:none">
 <img id="johnListPic" src="https://3.bp.blogspot.com/-R-zj8CMKN3Y/WYIN-fFLUFI/AAAAAAAAGJk/aVIcSLTYs7sbTidB9ucTvQw83WjwqKKBwCLcBGAs/s1600/john%2Blist%2B%25282%2529.png" style="display:none">
 <img id="ramirezPic" src="ramirez.png" style="display:none">
+<img id="unterwegerPic" src="unterweger.png" style="display:none">
+<img id="pishushkinPic" src="pishushkin.png" style="display:none">
 <img id="firePic" src="fire.png" style="display:none">
 
 <img id="elisaPic" src="https://3.bp.blogspot.com/-rRbzrFHKDIY/WYFUFZ6ncGI/AAAAAAAAGHk/aenQVG58pXU0IJbKvqGH7oX25llzfi41wCLcBGAs/s1600/cecil%2Bghost.png" style="display:none">
@@ -57,7 +85,14 @@
 <img id="ratPic" src="rat.png" style="display:none">
 <img id="ratBabiesPic" src="ratBabies.png" style="display:none">
 <img id="pipesPic" src="pipes.png" style="display:none">
+<img id="pipes2Pic" src="pipes2.png" style="display:none">
+<img id="ratsPipePic" src="ratPipe.png" style="display:none">
 <img id="freeway1Pic" src="freeway1.png" style="display:none">
 <img id="freeway2Pic" src="freeway2.png" style="display:none">
+<img id="manholePic" src="manhole.png" style="display:none">
+<img id="homePic" src="home.png" style="display:none">
+<img id="well2Pic" src="well2.png" style="display:none">
+<img id="topiaryPic" src="topiary.png" style="display:none">
+<img id="sewerLadderPic" src="sewerLadder.png" style="display:none">
 
 <script src="MFM.js"></script>
