@@ -43,7 +43,7 @@ var motelSign=({name:"motelSign", x:width*2-215, y:0, width:120, height:77, imgO
 var hotelDoor=({name:"hotelDoor", x:width*2-140, y:90, width:140, height:201});
 var hotel1=({name:"hotel1", x:width*2, y:90, width:800, height:500});
 var hotel2=({name:"hotel2", x:width*2, y:-110, width:800, height:500});
-var hotel3=({name:"hotel2", x:width*2, y:-310, width:800, height:500});
+var hotel3=({name:"hotel3", x:width*2, y:-310, width:800, height:500});
 var hotel4=({name:"hotel4", x:width*2, y:-510, width:800, height:500});
 var elevator=({name:"elevator", x:2058, y:190, width:142, height:125, goingUp:true});
 var waterTower=({name:"waterTower", x:width*2, y:-1010, width:244, height:500});
@@ -154,10 +154,10 @@ boxes.push({x:width*2-350, y:-910, width:30, height:30, skin:"square"});
 boxes.push({x:width*2-450, y:-910, width:20, height:20, skin:"square"});
 //hotel floors
 boxes.push({x:1400, y:290, width:800, height:200, skin:"lib"});
-boxes.push({x:1400, y:80, width:680, height:10, skin:"lib"});
-boxes.push({x:1400, y:-125, width:680, height:10, skin:"lib"});
-boxes.push({x:1400, y:-325, width:680, height:10, skin:"lib"});
-boxes.push({x:1400, y:-526, width:270, height:16, skin:"lib"});
+boxes.push({x:1400, y:80, width:660, height:10, skin:"lib"});
+boxes.push({x:1400, y:-125, width:660, height:10, skin:"lib"});
+boxes.push({x:1400, y:-325, width:660, height:10, skin:"lib"});
+boxes.push({x:1400, y:-526, width:210, height:16, skin:"lib"});
 boxes.push({x:1750, y:-526, width:500, height:16, skin:"lib"});
 //right hotel wall
 boxes.push({x:(width*2-96)+895, y:-510, width:96, height:1000, skin:"wall"});
@@ -234,7 +234,7 @@ rungs.push({x:waterTower.x+100, y:waterTower.y+290, width:42, height:2});
 rungs.push({x:waterTower.x+100, y:waterTower.y+190, width:42, height:2});
 rungs.push({x:waterTower.x, y:waterTower.y+169, width:200, height:2});
 rungs.push({x:hotel4.x+280, y:hotel4.y+80, width:50, height:2});
-rungs.push({x:hotel4.x+280, y:hotel4.y+3, width:50, height:2});
+rungs.push({x:hotel4.x+300, y:hotel4.y+3, width:30, height:2});
 
 rungs.push({x:manhole.x, y:manhole.y, width:manhole.width, height:5});
 rungs.push({x:manhole.x, y:manhole.y+60, width:manhole.width, height:5});
@@ -640,18 +640,38 @@ function update() {
 
 //elevator goes up and down
 if(elevator.goingUp===true){
-  elevator.y--;
-  boxes[0].y--;
+  elevator.y-=2;
+  boxes[0].y-=2;
+  //player.y-=1.5;
   if(elevator.y<hotel4.y){
     elevator.goingUp=false;
   }
 }else{
-  elevator.y++;
-  boxes[0].y++;
+  elevator.y+=2;
+  boxes[0].y+=2;
+  //player.y+=1.5;
   if(elevator.y>hotel1.y+100){
     elevator.goingUp=true;
   }
 }
+/*
+if(!keys[38]){
+  if(player.x>elevator.x&&player.x<elevator.x+elevator.height&&player.y>elevator.y&&player.y<elevator.y+elevator.height){
+    player.y=boxes[0].y-player.height;
+    player.grounded=true;
+  }
+}
+/*
+/*
+dir = colCheck(player,boxes[0]);
+if(dir==="b"){
+  if(elevator.goingUp===true){
+    player.y-=.5;
+  }else{
+    player.y+=5;
+  }
+}*/
+
 //fires in list mansion
 if(player.x>ballroom.x && player.x<ballroom.x+ballroom.width && player.y<ballroom.y+ballroom.height){
   if(frameCount%200===0){
