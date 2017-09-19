@@ -523,8 +523,8 @@ function update() {
               if(soundOn){
                 hitSound.play();
               }
-                karenHealth-=.5;
-                georgiaHealth-=.5;
+                karenHealth-=.3;
+                georgiaHealth-=.3;
             }
         }
         if(karenHealth>0&&georgiaHealth>0){
