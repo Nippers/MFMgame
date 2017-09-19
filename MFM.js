@@ -110,9 +110,9 @@ cookies.push({name:"cookie", x:1550, y:-250, width:19, height:19, eaten:false});
 cookies.push({name:"cookie", x:1700, y:-290, width:19, height:19, eaten:false});
 cookies.push({name:"cookie", x:1850, y:-250, width:19, height:19, eaten:false});
 
-cookies.push({name:"cookie", x:2000, y:-550, width:19, height:19, eaten:false});
-cookies.push({name:"cookie", x:2050, y:-550, width:19, height:19, eaten:false});
-cookies.push({name:"cookie", x:2100, y:-550, width:19, height:19, eaten:false});
+//cookies.push({name:"cookie", x:2000, y:-550, width:19, height:19, eaten:false});
+//cookies.push({name:"cookie", x:2050, y:-550, width:19, height:19, eaten:false});
+//cookies.push({name:"cookie", x:2100, y:-550, width:19, height:19, eaten:false});
 cookies.push({name:"cookie", x:2150, y:-550, width:19, height:19, eaten:false});
 cookies.push({name:"cookie", x:2200, y:-550, width:19, height:19, eaten:false});
 
