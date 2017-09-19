@@ -120,6 +120,8 @@ cookies.push({name:"cookie", x:ballroom.x+700, y:ballroom.y-180, width:19, heigh
 cookies.push({name:"cookie", x:ballroom.x+800, y:ballroom.y-180, width:19, height:19, eaten:false});
 cookies.push({name:"cookie", x:ballroom.x+900, y:ballroom.y-180, width:19, height:19, eaten:false});
 cookies.push({name:"cookie", x:ballroom.x+1250, y:ballroom.y-200, width:19, height:19, eaten:false});
+//sewer
+cookies.push({name:"cookie", x:grate.x+400, y:grate.y, width:19, height:19, eaten:false})
 
 var boxes = [];
 
