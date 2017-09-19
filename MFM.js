@@ -103,17 +103,17 @@ cookies.push({name:"cookie", x:1550, y:150, width:19, height:19, eaten:false});
 cookies.push({name:"cookie", x:1700, y:110, width:19, height:19, eaten:false});
 
 cookies.push({name:"cookie", x:1550, y:-50, width:19, height:19, eaten:false});
-cookies.push({name:"cookie", x:1700, y:-90, width:19, height:19, eaten:false});
-cookies.push({name:"cookie", x:1850, y:-50, width:19, height:19, eaten:false});
+//cookies.push({name:"cookie", x:1700, y:-90, width:19, height:19, eaten:false});
+//cookies.push({name:"cookie", x:1850, y:-50, width:19, height:19, eaten:false});
 
 cookies.push({name:"cookie", x:1550, y:-250, width:19, height:19, eaten:false});
-cookies.push({name:"cookie", x:1700, y:-290, width:19, height:19, eaten:false});
+//cookies.push({name:"cookie", x:1700, y:-290, width:19, height:19, eaten:false});
 cookies.push({name:"cookie", x:1850, y:-250, width:19, height:19, eaten:false});
 
 //cookies.push({name:"cookie", x:2000, y:-550, width:19, height:19, eaten:false});
 //cookies.push({name:"cookie", x:2050, y:-550, width:19, height:19, eaten:false});
 //cookies.push({name:"cookie", x:2100, y:-550, width:19, height:19, eaten:false});
-cookies.push({name:"cookie", x:2150, y:-550, width:19, height:19, eaten:false});
+//cookies.push({name:"cookie", x:2150, y:-550, width:19, height:19, eaten:false});
 cookies.push({name:"cookie", x:2200, y:-550, width:19, height:19, eaten:false});
 
 cookies.push({name:"cookie", x:ballroom.x+700, y:ballroom.y-180, width:19, height:19, eaten:false});
