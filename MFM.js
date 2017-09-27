@@ -16,8 +16,8 @@ canvas.getContext("2d").scale(2,2);
 
     var player = {
         x: width/2,
-        y: -70,
-        //y:-1500,
+        //y: -70,
+        y:-1500,
         width: 70,
         height: 94,
         speed: 3,
@@ -53,6 +53,7 @@ var ballroom2=({name:"ballroom2", x:-800, y:-1580, width:1000, height:320});
 var skylight=({name:"skylight", x:ballroom2.x+255, y:ballroom2.y, width:400, height:322, boxWidth:400, boxHeight:350});
 var balcony=({name:"balcony", x:ballroom.x+ballroom.width-10, y:ballroom2.y, width:210, height:670});
 var forestSign=({name:"forestSign", x:ballroom.x+1500, y:ballroom.y+270, width:63, height:80});
+var listSign=({name:"listSign", x:ballroom.x+1550, y:ballroom.y+240, width:63, height:110});
 var well = ({name:"well", x:ballroom.x+110, y:ballroom.y+820, width:90, height:228, frames:14, imgOffsetX:0, imgOffsetY:0, animSpeed:20});
 var graves = ({name:"graves", x:well.x+180, y:well.y+130, width:85, height:50});
 var grate = ({name:"grate", x:-width-85, y:height+90, width:96, height:160});
@@ -62,14 +63,15 @@ var pipes3 = ({name:"pipes2", x:grate.x+1650, y:grate.y-80, width:330, height:12
 var ratsPipe = ({name:"ratsPipe", x:grate.x+2005, y:grate.y+60, width:85, height:50});
 var manhole = ({name:"manhole", x:-200, y:height-10, width:80, height:20});
 var home = ({name:"home", x:-500, y:190, width:250, height:250});
+var kitten = ({name:"kitten", x:-500, y:300, width:17, height:25});
 var well2 = ({name:"well2", x:-690, y:345, width:80, height:125});
 var sewerLadder = ({name:"sewerLadder", x:manhole.x+7, y:manhole.y+20, width:65, height:200});
 
 var killers = [];
-killers.push({name:"rat", x:grate.x+700, y:grate.y+75, width:27, height:28, dead:false, imgOffsetY:28, imgOffsetX:0,animSpeed:12, frames:3, goingRight:false, speed:.6, leftX:grate.x+grate.width, rightX:grate.x+2060});
-killers.push({name:"rat", x:grate.x+600, y:grate.y+75, width:27, height:28, dead:false, imgOffsetY:28, imgOffsetX:0,animSpeed:12, frames:3, goingRight:false, speed:1, leftX:grate.x+grate.width, rightX:grate.x+2060});
-killers.push({name:"rat", x:grate.x+550, y:grate.y+75, width:27, height:28, dead:false, imgOffsetY:28, imgOffsetX:0,animSpeed:12, frames:3, goingRight:false, speed:1.5, leftX:grate.x+grate.width, rightX:grate.x+2060});
-killers.push({name:"ratBabies", x:grate.x+200, y:grate.y+68, width:47, height:28, dead:false, imgOffsetY:28, imgOffsetX:0,animSpeed:12, frames:4, goingRight:false, speed:.6, leftX:grate.x+grate.width, rightX:grate.x+2040});
+killers.push({name:"rat", x:grate.x+700, y:grate.y+75, width:27, height:28, dead:false, imgOffsetY:28, imgOffsetX:0,animSpeed:12, frames:3, goingRight:false, speed:.6, leftX:grate.x+grate.width+10, rightX:grate.x+2060});
+killers.push({name:"rat", x:grate.x+600, y:grate.y+75, width:27, height:28, dead:false, imgOffsetY:28, imgOffsetX:0,animSpeed:12, frames:3, goingRight:false, speed:1, leftX:grate.x+grate.width+10, rightX:grate.x+2060});
+killers.push({name:"rat", x:grate.x+550, y:grate.y+75, width:27, height:28, dead:false, imgOffsetY:28, imgOffsetX:0,animSpeed:12, frames:3, goingRight:false, speed:1.5, leftX:grate.x+grate.width+10, rightX:grate.x+2060});
+killers.push({name:"ratBabies", x:grate.x+200, y:grate.y+68, width:47, height:28, dead:false, imgOffsetY:28, imgOffsetX:0,animSpeed:12, frames:4, goingRight:false, speed:.6, leftX:grate.x+grate.width+10, rightX:grate.x+2040});
 //ground level
 killers.push({name:"doctor", x:200, y:345, width:40, height:95, dead:false, imgOffsetY:0, imgOffsetX:40,animSpeed:7,frames:3,goingRight:false,speed:.3,leftX:-250,rightX:width*2-210});
 killers.push({name:"doctor", x:600, y:345, width:40, height:95, dead:false, imgOffsetY:95, imgOffsetX:40, animSpeed:7,frames:3,goingRight:true,speed:.3,leftX:-250,rightX:width*2-230});
@@ -119,9 +121,10 @@ cookies.push({name:"cookie", x:2200, y:-550, width:19, height:19, eaten:false});
 cookies.push({name:"cookie", x:ballroom.x+700, y:ballroom.y-180, width:19, height:19, eaten:false});
 cookies.push({name:"cookie", x:ballroom.x+800, y:ballroom.y-180, width:19, height:19, eaten:false});
 cookies.push({name:"cookie", x:ballroom.x+900, y:ballroom.y-180, width:19, height:19, eaten:false});
-cookies.push({name:"cookie", x:ballroom.x+1250, y:ballroom.y-200, width:19, height:19, eaten:false});
+cookies.push({name:"cookie", x:ballroom.x+1250, y:ballroom.y-180, width:19, height:19, eaten:false});
 //sewer
-cookies.push({name:"cookie", x:grate.x+400, y:grate.y, width:19, height:19, eaten:false})
+cookies.push({name:"cookie", x:grate.x+400, y:grate.y, width:19, height:19, eaten:false});
+cookies.push({name:"cookie", x:ratsPipe.x+30, y:ratsPipe.y-15, width:19, height:19, eaten:false});
 
 var boxes = [];
 
@@ -172,14 +175,17 @@ boxes.push({x:ballroomStairs.x+70, y:ballroomStairs.y+255, width:30, height:2, s
 boxes.push({x:ballroomStairs.x+40, y:ballroomStairs.y+225, width:30, height:2, skin:"no"});
 boxes.push({x:ballroomStairs.x+10, y:ballroomStairs.y+195, width:30, height:2, skin:"no"});
 boxes.push({x:ballroomStairs.x-10, y:ballroomStairs.y, width:10, height:ballroomStairs.height, skin:"no"});
+boxes.push({x:ballroom2.x, y:ballroom2.y, width:10, height:ballroom2.height, skin:"no"});
 
 boxes.push({x:ballroomStairs.x+120, y:ballroomStairs.y+120, width:10, height:2, skin:"no"});
 boxes.push({x:ballroomStairs.x+150, y:ballroomStairs.y+90, width:10, height:2, skin:"no"});
 boxes.push({x:ballroomStairs.x+180, y:ballroomStairs.y+60, width:10, height:2, skin:"no"});
 boxes.push({x:ballroomStairs.x+210, y:ballroomStairs.y+30, width:10, height:2, skin:"no"});
 
+boxes.push({x:well2.x+well2.width, y:well2.y+50, width:1, height:20, skin:"no"});
 //ballroom 2nd floor
-boxes.push({x:ballroom2.x+420, y:ballroom2.y+ballroom2.height-20, width:780, height:10, skin:"rect"});
+boxes.push({x:ballroom2.x+420, y:ballroom2.y+ballroom2.height-10, width:780, height:10, skin:"no"});
+//rungs.push({x:ballroom2.x, y:ballroom2.y+ballroom2.height-20, width:780, height:1});
 //forest
 boxes.push({x:800, y:-430, width:40, height:40, skin:"square"});
 boxes.push({x:750, y:-380, width:20, height:20, skin:"square"});
@@ -198,10 +204,10 @@ boxes.push({x:pipes.x+300, y:pipes.y+135, width:200, height:10, skin:"no"});
 //forest
 killers.push({name:"owl", x:ballroom.x+600, y:ballroom.y+800, width:63, height:91, dead:false, imgOffsetY:0, imgOffsetX:63, goingRight:true, frames:3, animSpeed:30, leftX:ballroom.x+500, rightX:ballroom.x+1520, speed:2});
 killers.push({name:"owl", x:ballroom.x+500, y:ballroom.y+830, width:63, height:91, dead:false, imgOffsetY:0, imgOffsetX:63, goingRight:true, frames:3, animSpeed:30, leftX:ballroom.x+500, rightX:ballroom.x+1520, speed:3});
-killers.push({name:"pishushkin", x:ballroom.x+400, y:ballroom.y+890, width:47, height:111, dead:false, imgOffsetX:47, goingRight:true, frames:5, animSpeed:25, leftX:ballroom.x+500, rightX:ballroom.x+1520, speed:1.2});
-killers.push({name:"pishushkin", x:ballroom.x+500, y:ballroom.y+890, width:47, height:111, dead:false, imgOffsetX:47, goingRight:true, frames:5, animSpeed:20, leftX:ballroom.x+500, rightX:ballroom.x+1520, speed:1.5});
-killers.push({name:"pishushkin", x:ballroom.x+300, y:ballroom.y+890, width:47, height:111, dead:false, imgOffsetX:47, goingRight:true, frames:5, animSpeed:30, leftX:ballroom.x+500, rightX:ballroom.x+1520, speed:1});
-cookies.push({name:"cookie", x:ballroom.x+1750, y:ballroom.y+850, width:19, height:19, eaten:false});
+killers.push({name:"pishushkin", x:ballroom.x+400, y:ballroom.y+890, width:47, height:111, dead:false, imgOffsetX:47, goingRight:true, frames:5, animSpeed:25, leftX:ballroom.x+500, rightX:ballroom.x+1540, speed:1.2});
+killers.push({name:"pishushkin", x:ballroom.x+500, y:ballroom.y+890, width:47, height:111, dead:false, imgOffsetX:47, goingRight:true, frames:5, animSpeed:20, leftX:ballroom.x+500, rightX:ballroom.x+1540, speed:1.5});
+killers.push({name:"pishushkin", x:ballroom.x+300, y:ballroom.y+890, width:47, height:111, dead:false, imgOffsetX:47, goingRight:true, frames:5, animSpeed:30, leftX:ballroom.x+500, rightX:ballroom.x+1540, speed:1});
+cookies.push({name:"cookie", x:ballroom.x+1750, y:ballroom.y+870, width:19, height:19, eaten:false});
 cookies.push({name:"cookie", x:ballroom.x+900, y:ballroom.y+850, width:19, height:19, eaten:false});
 cookies.push({name:"cookie", x:ballroom.x+250, y:ballroom.y+850, width:19, height:19, eaten:false});
 
@@ -230,6 +236,8 @@ for (i=0;i<20;i++){
 var rungs=[];
 //ballroom stairs landing
 rungs.push({x:ballroomStairs.x+40, y:ballroomStairs.y+150, width:60, height:10});
+//ballroom second floor
+rungs.push({x:ballroom2.x, y:ballroom2.y+ballroom2.height-18, width:ballroom2.width+200, height:1});
 
 rungs.push({x:waterTower.x+100, y:waterTower.y+390, width:42, height:2});
 rungs.push({x:waterTower.x+100, y:waterTower.y+290, width:42, height:2});
@@ -243,7 +251,7 @@ rungs.push({x:manhole.x, y:manhole.y+60, width:manhole.width, height:5});
 rungs.push({x:manhole.x, y:manhole.y+120, width:manhole.width, height:5});
 
 var movingObjects = []; //for moving the viewport
-movingObjects.push(sewerLadder,well2,home,manhole,stayOutOfTheForestSign,graves,ratsPipe,pipes,pipes2,pipes3,grate,well,forestSign,balcony,skylight,ballroom2,ballroomStairs,ballroom,waterTower,fountain,elevator,motelSign,hotel1,hotel2,hotel3,hotel4,hotelDoor);
+movingObjects.push(sewerLadder,well2,home,kitten,manhole,stayOutOfTheForestSign,listSign,graves,ratsPipe,pipes,pipes2,pipes3,grate,well,forestSign,balcony,skylight,ballroom2,ballroomStairs,ballroom,waterTower,fountain,elevator,motelSign,hotel1,hotel2,hotel3,hotel4,hotelDoor);
 
 for(i=0;i<boxes.length;i++){
 	movingObjects.push(boxes[i]);
@@ -266,7 +274,7 @@ for(i=0;i<trees2.length;i++){
 var pics = [];
 
 
-pics.push(home,stayOutOfTheForestSign,graves,pipes2,pipes3,sewerLadder,forestSign,skylight,ballroom2,ballroom,hotel1,hotel2,hotel3,hotel4,waterTower,motelSign,elvis,player,balcony,ballroomStairs,elevator,hotelDoor,fountain,well,well2,grate,manhole,pipes);
+pics.push(home,kitten,stayOutOfTheForestSign,graves,pipes2,pipes3,sewerLadder,forestSign,listSign,skylight,ballroom2,ballroom,hotel1,hotel2,hotel3,hotel4,waterTower,motelSign,elvis,player,balcony,ballroomStairs,elevator,hotelDoor,fountain,well,well2,grate,manhole,pipes);
 
 for(i=0;i<killers.length;i++){
 	pics.push(killers[i]);
@@ -291,7 +299,8 @@ var song = new Audio('tribal.wav');
 var cecilSong = new Audio('hotel.wav');
 var waterTowerSounds = new Audio('waterTowerSounds.wav');
 var listSong = new Audio('DminorFugue.mp3');
-var sewerSong = new Audio('sewer.wav');
+var forestSong = new Audio('forest.wav');
+var sewerSong = new Audio('sewerSong.wav');
 var diceSound = new Audio('dice.wav');
 //initialize some variables
 var cookieCount = 0;
@@ -313,12 +322,24 @@ function update() {
     frameCount=0;
   }
 
-  if(player.x<ballroom.x+ballroom.width+700 && player.y<ballroom.y+ballroom.height){
+//background sounds
+  if(player.x<ballroom.x+ballroom.width+700 && player.y<ballroom.y+ballroom.height-40){
     song.pause();
+
     if(soundOn){
+      //song.volume = 0.1;
       listSong.play();
     }else{
+      song.pause;
       listSong.pause();
+    }
+  }else if(player.x<ballroom.x+ballroom.width+800 && player.y>ballroom.y+ballroom.height && player.y<ballroom.y+ballroom.height+500){
+    if(soundOn){
+      song.play();
+      forestSong.play();
+    }else{
+      song.pause();
+      forestSong.pause();
     }
   }else if(player.x>hotel1.x-5){
     listSong.pause();
@@ -334,20 +355,26 @@ function update() {
       cecilSong.pause();
     }
   }else if (player.y>home.y+home.height){
+    //song.pause();
     if(soundOn){
+      //song.volume=0.1;
       sewerSong.play();
       diceSound.play();
     }else{
       sewerSong.pause();
       diceSound.pause();
     }
+  //}else if(player.x<ballroom.x+ballroom.width&&player.y>ballroom.y+ballroom.height&&player.y<ballroom.y+ballroom.height+400){
+    //forestSong.play();
   }else{
     cecilSong.pause();
     listSong.pause();
     waterTowerSounds.pause();
     sewerSong.pause();
     diceSound.pause();
+    forestSong.pause();
     if(soundOn){
+      //song.volume=1;
       song.play();
     }
   }
@@ -525,8 +552,8 @@ function update() {
               if(soundOn){
                 hitSound.play();
               }
-                karenHealth-=.3;
-                georgiaHealth-=.3;
+                karenHealth-=.5;
+                georgiaHealth-=.5;
             }
         }
         if(karenHealth>0&&georgiaHealth>0){
@@ -679,7 +706,7 @@ if(player.x>ballroom.x && player.x<ballroom.x+ballroom.width && player.y<ballroo
   if(frameCount%200===0){
     var yf = Math.random();
     if(yf>.5){
-      yf=ballroom2.y+230;
+      yf=ballroom2.y+235;//height of 2nd floor fires
       xf = Math.random()*500+ballroom.x+500;
     }else{
       yf=ballroom.y+300;
