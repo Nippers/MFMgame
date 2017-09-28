@@ -15,8 +15,8 @@ canvas.getContext("2d").scale(2,2);
 
 
     var player = {
-        x: width/2,
-        //y: -70,
+        //x: width/2,
+        y: -70,
         y:-1500,
         width: 70,
         height: 94,
@@ -683,23 +683,7 @@ if(elevator.goingUp===true){
     elevator.goingUp=true;
   }
 }
-/*
-if(!keys[38]){
-  if(player.x>elevator.x&&player.x<elevator.x+elevator.height&&player.y>elevator.y&&player.y<elevator.y+elevator.height){
-    player.y=boxes[0].y-player.height;
-    player.grounded=true;
-  }
-}
-/*
-/*
-dir = colCheck(player,boxes[0]);
-if(dir==="b"){
-  if(elevator.goingUp===true){
-    player.y-=.5;
-  }else{
-    player.y+=5;
-  }
-}*/
+
 
 //fires in list mansion
 if(player.x>ballroom.x && player.x<ballroom.x+ballroom.width && player.y<ballroom.y+ballroom.height){
