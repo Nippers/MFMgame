@@ -619,14 +619,17 @@ function update() {
     }
 
     for (i=0; i<cookies.length; i++){
-      dir = colCheck(player, cookies[i], 1);
-      if(dir!==null){
-        cookies[i].width=0;
-        cookies[i].height=0;
-        cookies.splice(i, 1);
-        cookieCount++;
-        if(soundOn){
-          cookieSound.play();
+      if(cookies[i].eaten===false){
+        dir = colCheck(player, cookies[i], 1);
+        if(dir!==null){
+          cookies[i].width=0;
+          cookies[i].height=0;
+          cookies[i].eaten=true;
+          //cookies.splice(i, 1);
+          cookieCount++;
+          if(soundOn){
+            cookieSound.play();
+          }
         }
       }
     }
