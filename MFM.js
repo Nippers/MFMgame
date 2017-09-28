@@ -330,7 +330,7 @@ function update() {
       //song.volume = 0.1;
       listSong.play();
     }else{
-      song.pause;
+      song.pause();
       listSong.pause();
     }
   }else if(player.x<ballroom.x+ballroom.width+800 && player.y>ballroom.y+ballroom.height && player.y<ballroom.y+ballroom.height+500){
@@ -352,6 +352,7 @@ function update() {
         waterTowerSounds.pause();
       }
     }else{
+      waterTowerSounds.pause();
       cecilSong.pause();
     }
   }else if (player.y>home.y+home.height){
