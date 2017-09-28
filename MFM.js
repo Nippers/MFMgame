@@ -15,9 +15,9 @@ canvas.getContext("2d").scale(2,2);
 
 
     var player = {
-        //x: width/2,
+        x: width/2,
         y: -70,
-        y:-1500,
+        //y:-1500,
         width: 70,
         height: 94,
         speed: 3,
