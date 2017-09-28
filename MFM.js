@@ -529,7 +529,7 @@ function update() {
     for (i=0; i<killers.length; i++){
       if(cookieCount>0){
         dir = colCheck(elvis, killers[i], 0);
-        if((dir==="l" || dir==="r") && keys[32]){
+        if((dir==="l" || dir==="r" || dir==="b") && keys[32]){
           killers[i].dead=true;
           if(soundOn){
             killSound.play();
