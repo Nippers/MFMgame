@@ -622,8 +622,8 @@ function update() {
       if(cookies[i].eaten===false){
         dir = colCheck(player, cookies[i], 1);
         if(dir!==null){
-          cookies[i].width=0;
-          cookies[i].height=0;
+          cookies[i].width=1;
+          cookies[i].height=1;
           cookies[i].eaten=true;
           //cookies.splice(i, 1);
           cookieCount++;
