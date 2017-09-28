@@ -738,8 +738,6 @@ for(i=0;i<ghosts.length;i++){
    //draw stuff on the canvas
    	//sky
     var grd = ctx.createLinearGradient(0,height,0,0);
-    //grd.addColorStop(0,"#99ffff");//light blue
-    //grd.addColorStop(1,"#19334d");//dark blue
     grd.addColorStop(0,"#336699");//dark blue
     grd.addColorStop(1,"black");
     ctx.fillStyle=grd;
