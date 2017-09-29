@@ -18,6 +18,7 @@ canvas.getContext("2d").scale(2,2);
         x: width/2,
         y: -70,
         //y:-1500,
+        //y:height+20,
         width: 70,
         height: 94,
         speed: 3,
@@ -63,7 +64,9 @@ var pipes3 = ({name:"pipes2", x:grate.x+1650, y:grate.y-80, width:330, height:12
 var ratsPipe = ({name:"ratsPipe", x:grate.x+2005, y:grate.y+60, width:85, height:50});
 var manhole = ({name:"manhole", x:-200, y:height-10, width:80, height:20});
 var home = ({name:"home", x:-500, y:190, width:250, height:250});
-var kitten = ({name:"kitten", x:-500, y:300, width:17, height:25});
+var kitten = ({name:"kitten", x:-440, y:345, width:17, height:25, frames:4, imgOffsetX:0, imgOffsetY:0, animSpeed:30});
+var mimi = ({name:"mimi", x:-390, y:355, width:51, height:50, frames:2, imgOffsetX:0, imgOffsetY:0, animSpeed:50});
+var bigfoot = ({name:"bigfoot", x:-700, y:190, width:1, height:1, frames:4, imgOffsetX:0, imgOffsetY:0, animSpeed:15, goingRight:true, speed:.5, leftX:home.x-120, rightX:home.x+320, on:false});
 var well2 = ({name:"well2", x:-690, y:345, width:80, height:125});
 var sewerLadder = ({name:"sewerLadder", x:manhole.x+7, y:manhole.y+20, width:65, height:200});
 
@@ -251,7 +254,7 @@ rungs.push({x:manhole.x, y:manhole.y+60, width:manhole.width, height:5});
 rungs.push({x:manhole.x, y:manhole.y+120, width:manhole.width, height:5});
 
 var movingObjects = []; //for moving the viewport
-movingObjects.push(sewerLadder,well2,home,kitten,manhole,stayOutOfTheForestSign,listSign,graves,ratsPipe,pipes,pipes2,pipes3,grate,well,forestSign,balcony,skylight,ballroom2,ballroomStairs,ballroom,waterTower,fountain,elevator,motelSign,hotel1,hotel2,hotel3,hotel4,hotelDoor);
+movingObjects.push(sewerLadder,well2,bigfoot,home,kitten,mimi,manhole,stayOutOfTheForestSign,listSign,graves,ratsPipe,pipes,pipes2,pipes3,grate,well,forestSign,balcony,skylight,ballroom2,ballroomStairs,ballroom,waterTower,fountain,elevator,motelSign,hotel1,hotel2,hotel3,hotel4,hotelDoor);
 
 for(i=0;i<boxes.length;i++){
 	movingObjects.push(boxes[i]);
@@ -274,7 +277,7 @@ for(i=0;i<trees2.length;i++){
 var pics = [];
 
 
-pics.push(home,kitten,stayOutOfTheForestSign,graves,pipes2,pipes3,sewerLadder,forestSign,listSign,skylight,ballroom2,ballroom,hotel1,hotel2,hotel3,hotel4,waterTower,motelSign,elvis,player,balcony,ballroomStairs,elevator,hotelDoor,fountain,well,well2,grate,manhole,pipes);
+pics.push(bigfoot,home,kitten,mimi,stayOutOfTheForestSign,graves,pipes2,pipes3,sewerLadder,forestSign,listSign,skylight,ballroom2,ballroom,hotel1,hotel2,hotel3,hotel4,waterTower,motelSign,elvis,player,balcony,ballroomStairs,elevator,hotelDoor,fountain,well,well2,grate,manhole,pipes);
 
 for(i=0;i<killers.length;i++){
 	pics.push(killers[i]);
@@ -613,6 +616,11 @@ function update() {
     animate(well,0);
     animate(pipes2,0);
     animate(pipes3,0);
+    animate(kitten,0);
+    animate(mimi,0);
+    if(bigfoot.on){
+      animate(bigfoot,1);
+    }
 
     if(player.y+player.height > grate.y+60 && player.x>grate.x+31){
       player.x--;
@@ -841,9 +849,16 @@ if(player.y>home.y&&player.y<home.y+home.height&&player.x>home.x&&player.x<home.
   done = true;
 }
 if(done===true){
+  if(player.x<home.x+20){
+    mimi.imgOffsetY=mimi.height;
+  }
   document.getElementById("replayButton").style.display="inline";
   if(georgiaHealth>0){
     if(karenHealth>0){
+      //sasquatch throwing confetti
+      bigfoot.on=true;
+      bigfoot.width=150;
+      bigfoot.height=250;
       var endingText = "Everyone stayed sexy and didn't get murdered. You win!";
     }else{
       var endingText = "But you let Karen get murdered, so that's not super amazing.";
